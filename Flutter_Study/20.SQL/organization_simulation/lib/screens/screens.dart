@@ -1,0 +1,10 @@
+export 'auth/auth_screen.dart';
+export 'splash/splash_screen.dart';
+export 'manager/manager_screen.dart';
+export 'employee/empoyee_screen.dart';
+export 'frealancer/frea_lancer_screen.dart';
+export 'database/test_database_screen2.dart';
+export 'manager/manager_screen.dart';
+export 'manager_add/manager_add_screen.dart';
+export 'employee_add/employee_add_screen.dart';
+export 'frealancer_add/frealancer_add_screen.dart';

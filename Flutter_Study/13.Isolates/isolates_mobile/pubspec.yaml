@@ -1,0 +1,39 @@
+name: isolates_mobile
+description: A new Flutter project.
+
+publish_to: 'none' 
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.0 <4.0.0'
+
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  equatable: ^2.0.5
+  json_annotation: ^4.8.1
+  path_provider: ^2.1.1
+  retrofit: ^4.0.3
+  dio_http_formatter: ^3.2.1
+  dio: ^5.3.3
+  injector: ^3.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^2.0.0
+  isolates: ^3.0.3+8
+  build_runner: ^2.4.6
+  json_serializable: ^6.7.1
+  
+
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/data/
+    - assets/files/

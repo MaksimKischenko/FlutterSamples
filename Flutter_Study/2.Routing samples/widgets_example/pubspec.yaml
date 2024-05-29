@@ -1,0 +1,113 @@
+name: widgets_example
+description: A new Flutter application.
+
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  
+  flutter_localizations:
+    sdk: flutter
+    
+
+  cupertino_icons: ^1.0.2
+  intl: ^0.17.0
+  url_strategy: ^0.2.0
+  data_table_2: ^2.0.3
+  syncfusion_flutter_datepicker: ^19.1.69-beta
+
+  dio: ^4.0.0
+  json_annotation: ^4.0.1
+  retrofit: ^2.0.0
+
+  # comment logger and alice when release bundle
+  logger: ^1.0.0
+  # alice: ^0.2.1
+
+  injector: ^2.0.0
+
+  equatable: ^2.0.3
+  flutter_bloc: ^7.1.0
+
+  flutter_svg: ^0.22.0
+
+  dartx: ^0.7.1
+
+  responsive_ui: ^2.1.0
+  sqflite:
+  path:
+  fluid_kit: ^2.0.3
+
+  responsive_builder: ^0.4.1
+
+  # flutter_masked_text2: ^0.9.1
+  mask_text_input_formatter: ^2.0.0
+
+  configurable_expansion_tile_null_safety: ^2.0.0
+    # git:
+    #   url: https://github.com/LuckyWins/configurable_expansion_tile.git
+    #   ref: master
+
+  qr_flutter: ^4.0.0
+
+  web_socket_channel: ^2.1.0
+
+  shared_preferences: ^2.0.6
+
+  email_validator: ^2.0.1
+
+  excel: #^2.0.0-null-safety-3
+    git:
+      url: https://github.com/justkawal/excel.git
+      ref: 8562de77a964801bff184700ef422e35f36347da
+  
+  path_provider: ^2.0.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  retrofit_generator: ^2.0.0
+  build_runner: ^2.0.3
+  json_serializable: ^4.1.2
+
+flutter:
+
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/
+    - assets/files/
+    - assets/icon/
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

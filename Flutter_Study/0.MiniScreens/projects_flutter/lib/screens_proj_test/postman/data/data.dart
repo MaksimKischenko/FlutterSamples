@@ -1,0 +1,1 @@
+export 'remote_models/post_model.dart';
