@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+
+var _key = GlobalKey(debugLabel: "testLabel");
+
+class GlobalScreenTest extends StatefulWidget {
+  @override
+  _GlobalScreenTestState createState() => _GlobalScreenTestState();
+}
+
+class _GlobalScreenTestState extends State<GlobalScreenTest> {
+  bool _isFirst = true;
+  
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: _isFirst ? first() : second(),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Text("Switch"),
+        onPressed: () {
+          setState(() {
+            _isFirst = !_isFirst;
+          });
+        },
+      ),
+    );
+  }
+}
+
+Widget first() => Row(
+    key: _key,
+    mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+      Text(
+        "test",
+        style: TextStyle(fontSize: 25),
+      ),
+      SizedBox(
+        width: 5,
+      ),
+      Icon(
+        Icons.error,
+      ),
+    ],
+);
+
+Widget second() => Container(child: first());
