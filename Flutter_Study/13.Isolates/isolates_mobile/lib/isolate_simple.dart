@@ -15,7 +15,7 @@ Future<void> main() async{
     receivePort.sendPort, 
     debugName: 'ISOLATE'
     );
-  // Отправляем порт изолюта в основной изолят.
+  // Отправляем порт изолята в основной изолят.
   listenIsolate(receivePort);
 }
 

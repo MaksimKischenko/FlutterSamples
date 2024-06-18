@@ -31,7 +31,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  teledart: ^0.5.3
+  teledart: ^0.6.1
 
 
   # The following adds the Cupertino Icons font to your application.
