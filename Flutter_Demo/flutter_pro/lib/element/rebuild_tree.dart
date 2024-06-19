@@ -32,18 +32,17 @@ class Switcher extends StatefulWidget {
 class _SwitcherState extends State<Switcher> {
   @override
   Widget build(BuildContext context) {
+    log('REBUILD Switcher');
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         OutlinedButton(
           onPressed: () {
-            setState(() {
-              log('REBUILD Switcher');
-            });
+            setState(() {});
           }, 
           child: const Text('REBUILD')
         ),
-         const SwitcherChild()
+        const SwitcherChild()
       ],
     );
   }
@@ -58,6 +57,12 @@ class SwitcherChild extends StatefulWidget {
 }
 
 class _SwitcherChildState extends State<SwitcherChild> {
+
+  @override
+  void didUpdateWidget(covariant SwitcherChild oldWidget) {
+    debugPrint('PARENT UPDATED ${oldWidget.runtimeType}');
+    super.didUpdateWidget(oldWidget);
+  }
   @override
   Widget build(BuildContext context) {
     log('REBUILD SwitcherChild');
