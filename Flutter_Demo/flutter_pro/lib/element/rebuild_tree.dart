@@ -15,7 +15,7 @@ class RebuildTree extends StatefulWidget {
 class _RebuildTreeState extends State<RebuildTree> {
   @override
   Widget build(BuildContext context) {
-    log('REBUILD RebuildTree');
+    log('REBUILD TOP'); //TODO? Do not rebuilds 
     return const Scaffold(body: Center(child: Switcher()));
   }
 }
@@ -32,7 +32,7 @@ class Switcher extends StatefulWidget {
 class _SwitcherState extends State<Switcher> {
   @override
   Widget build(BuildContext context) {
-    log('REBUILD Switcher');
+    log('REBUILD Switcher'); //TODO? rebuilds by setState
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -65,7 +65,7 @@ class _SwitcherChildState extends State<SwitcherChild> {
   }
   @override
   Widget build(BuildContext context) {
-    log('REBUILD SwitcherChild');
+    log('REBUILD SwitcherChild'); //TODO? Do not rebuilds 
     return Container();
   }
 }
