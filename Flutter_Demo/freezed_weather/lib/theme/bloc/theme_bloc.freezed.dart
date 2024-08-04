@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'theme_bloc.dart';
 
@@ -12,7 +12,7 @@ part of 'theme_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$ThemeEvent {
@@ -24,7 +24,7 @@ mixin _$ThemeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Weather weather)? changed,
+    TResult? Function(Weather weather)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,7 +40,7 @@ mixin _$ThemeEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Changed value)? changed,
+    TResult? Function(_Changed value)? changed,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -59,46 +59,53 @@ mixin _$ThemeEvent {
 abstract class $ThemeEventCopyWith<$Res> {
   factory $ThemeEventCopyWith(
           ThemeEvent value, $Res Function(ThemeEvent) then) =
-      _$ThemeEventCopyWithImpl<$Res>;
+      _$ThemeEventCopyWithImpl<$Res, ThemeEvent>;
+  @useResult
   $Res call({Weather weather});
 
   $WeatherCopyWith<$Res> get weather;
 }
 
 /// @nodoc
-class _$ThemeEventCopyWithImpl<$Res> implements $ThemeEventCopyWith<$Res> {
+class _$ThemeEventCopyWithImpl<$Res, $Val extends ThemeEvent>
+    implements $ThemeEventCopyWith<$Res> {
   _$ThemeEventCopyWithImpl(this._value, this._then);
 
-  final ThemeEvent _value;
   // ignore: unused_field
-  final $Res Function(ThemeEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? weather = freezed,
+    Object? weather = null,
   }) {
     return _then(_value.copyWith(
-      weather: weather == freezed
+      weather: null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as Weather,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WeatherCopyWith<$Res> get weather {
     return $WeatherCopyWith<$Res>(_value.weather, (value) {
-      return _then(_value.copyWith(weather: value));
+      return _then(_value.copyWith(weather: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_ChangedCopyWith<$Res> implements $ThemeEventCopyWith<$Res> {
-  factory _$$_ChangedCopyWith(
-          _$_Changed value, $Res Function(_$_Changed) then) =
-      __$$_ChangedCopyWithImpl<$Res>;
+abstract class _$$ChangedImplCopyWith<$Res>
+    implements $ThemeEventCopyWith<$Res> {
+  factory _$$ChangedImplCopyWith(
+          _$ChangedImpl value, $Res Function(_$ChangedImpl) then) =
+      __$$ChangedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({Weather weather});
 
   @override
@@ -106,20 +113,20 @@ abstract class _$$_ChangedCopyWith<$Res> implements $ThemeEventCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChangedCopyWithImpl<$Res> extends _$ThemeEventCopyWithImpl<$Res>
-    implements _$$_ChangedCopyWith<$Res> {
-  __$$_ChangedCopyWithImpl(_$_Changed _value, $Res Function(_$_Changed) _then)
-      : super(_value, (v) => _then(v as _$_Changed));
+class __$$ChangedImplCopyWithImpl<$Res>
+    extends _$ThemeEventCopyWithImpl<$Res, _$ChangedImpl>
+    implements _$$ChangedImplCopyWith<$Res> {
+  __$$ChangedImplCopyWithImpl(
+      _$ChangedImpl _value, $Res Function(_$ChangedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Changed get _value => super._value as _$_Changed;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? weather = freezed,
+    Object? weather = null,
   }) {
-    return _then(_$_Changed(
-      weather == freezed
+    return _then(_$ChangedImpl(
+      null == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as Weather,
@@ -129,8 +136,8 @@ class __$$_ChangedCopyWithImpl<$Res> extends _$ThemeEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Changed implements _Changed {
-  const _$_Changed(this.weather);
+class _$ChangedImpl implements _Changed {
+  const _$ChangedImpl(this.weather);
 
   @override
   final Weather weather;
@@ -141,21 +148,21 @@ class _$_Changed implements _Changed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Changed &&
-            const DeepCollectionEquality().equals(other.weather, weather));
+            other is _$ChangedImpl &&
+            (identical(other.weather, weather) || other.weather == weather));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(weather));
+  int get hashCode => Object.hash(runtimeType, weather);
 
   @JsonKey(ignore: true)
   @override
-  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
-      __$$_ChangedCopyWithImpl<_$_Changed>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
+      __$$ChangedImplCopyWithImpl<_$ChangedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -168,7 +175,7 @@ class _$_Changed implements _Changed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(Weather weather)? changed,
+    TResult? Function(Weather weather)? changed,
   }) {
     return changed?.call(weather);
   }
@@ -196,7 +203,7 @@ class _$_Changed implements _Changed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Changed value)? changed,
+    TResult? Function(_Changed value)? changed,
   }) {
     return changed?.call(this);
   }
@@ -215,13 +222,13 @@ class _$_Changed implements _Changed {
 }
 
 abstract class _Changed implements ThemeEvent {
-  const factory _Changed(final Weather weather) = _$_Changed;
+  const factory _Changed(final Weather weather) = _$ChangedImpl;
 
   @override
-  Weather get weather => throw _privateConstructorUsedError;
+  Weather get weather;
   @override
   @JsonKey(ignore: true)
-  _$$_ChangedCopyWith<_$_Changed> get copyWith =>
+  _$$ChangedImplCopyWith<_$ChangedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -250,8 +257,8 @@ mixin _$ThemeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(@ColorConverter() Color color)? initial,
-    TResult Function(@ColorConverter() Color color)? loaded,
+    TResult? Function(@ColorConverter() Color color)? initial,
+    TResult? Function(@ColorConverter() Color color)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -269,8 +276,8 @@ mixin _$ThemeState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -290,55 +297,61 @@ mixin _$ThemeState {
 abstract class $ThemeStateCopyWith<$Res> {
   factory $ThemeStateCopyWith(
           ThemeState value, $Res Function(ThemeState) then) =
-      _$ThemeStateCopyWithImpl<$Res>;
+      _$ThemeStateCopyWithImpl<$Res, ThemeState>;
+  @useResult
   $Res call({@ColorConverter() Color color});
 }
 
 /// @nodoc
-class _$ThemeStateCopyWithImpl<$Res> implements $ThemeStateCopyWith<$Res> {
+class _$ThemeStateCopyWithImpl<$Res, $Val extends ThemeState>
+    implements $ThemeStateCopyWith<$Res> {
   _$ThemeStateCopyWithImpl(this._value, this._then);
 
-  final ThemeState _value;
   // ignore: unused_field
-  final $Res Function(ThemeState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
     return _then(_value.copyWith(
-      color: color == freezed
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_InitialCopyWith<$Res> implements $ThemeStateCopyWith<$Res> {
-  factory _$$_InitialCopyWith(
-          _$_Initial value, $Res Function(_$_Initial) then) =
-      __$$_InitialCopyWithImpl<$Res>;
+abstract class _$$InitialImplCopyWith<$Res>
+    implements $ThemeStateCopyWith<$Res> {
+  factory _$$InitialImplCopyWith(
+          _$InitialImpl value, $Res Function(_$InitialImpl) then) =
+      __$$InitialImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@ColorConverter() Color color});
 }
 
 /// @nodoc
-class __$$_InitialCopyWithImpl<$Res> extends _$ThemeStateCopyWithImpl<$Res>
-    implements _$$_InitialCopyWith<$Res> {
-  __$$_InitialCopyWithImpl(_$_Initial _value, $Res Function(_$_Initial) _then)
-      : super(_value, (v) => _then(v as _$_Initial));
+class __$$InitialImplCopyWithImpl<$Res>
+    extends _$ThemeStateCopyWithImpl<$Res, _$InitialImpl>
+    implements _$$InitialImplCopyWith<$Res> {
+  __$$InitialImplCopyWithImpl(
+      _$InitialImpl _value, $Res Function(_$InitialImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Initial get _value => super._value as _$_Initial;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
-    return _then(_$_Initial(
-      color: color == freezed
+    return _then(_$InitialImpl(
+      color: null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
@@ -348,14 +361,14 @@ class __$$_InitialCopyWithImpl<$Res> extends _$ThemeStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Initial implements _Initial {
-  _$_Initial(
+class _$InitialImpl implements _Initial {
+  _$InitialImpl(
       {@ColorConverter() this.color = const Color(0xFF2196F3),
       final String? $type})
       : $type = $type ?? 'initial';
 
-  factory _$_Initial.fromJson(Map<String, dynamic> json) =>
-      _$$_InitialFromJson(json);
+  factory _$InitialImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InitialImplFromJson(json);
 
   @override
   @JsonKey()
@@ -371,22 +384,22 @@ class _$_Initial implements _Initial {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Initial &&
-            const DeepCollectionEquality().equals(other.color, color));
+            other is _$InitialImpl &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
-      __$$_InitialCopyWithImpl<_$_Initial>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
+      __$$InitialImplCopyWithImpl<_$InitialImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -400,8 +413,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(@ColorConverter() Color color)? initial,
-    TResult Function(@ColorConverter() Color color)? loaded,
+    TResult? Function(@ColorConverter() Color color)? initial,
+    TResult? Function(@ColorConverter() Color color)? loaded,
   }) {
     return initial?.call(color);
   }
@@ -431,8 +444,8 @@ class _$_Initial implements _Initial {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return initial?.call(this);
   }
@@ -452,47 +465,52 @@ class _$_Initial implements _Initial {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InitialToJson(this);
+    return _$$InitialImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Initial implements ThemeState {
-  factory _Initial({@ColorConverter() final Color color}) = _$_Initial;
+  factory _Initial({@ColorConverter() final Color color}) = _$InitialImpl;
 
-  factory _Initial.fromJson(Map<String, dynamic> json) = _$_Initial.fromJson;
+  factory _Initial.fromJson(Map<String, dynamic> json) = _$InitialImpl.fromJson;
 
   @override
   @ColorConverter()
-  Color get color => throw _privateConstructorUsedError;
+  Color get color;
   @override
   @JsonKey(ignore: true)
-  _$$_InitialCopyWith<_$_Initial> get copyWith =>
+  _$$InitialImplCopyWith<_$InitialImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_LoadedCopyWith<$Res> implements $ThemeStateCopyWith<$Res> {
-  factory _$$_LoadedCopyWith(_$_Loaded value, $Res Function(_$_Loaded) then) =
-      __$$_LoadedCopyWithImpl<$Res>;
+abstract class _$$LoadedImplCopyWith<$Res>
+    implements $ThemeStateCopyWith<$Res> {
+  factory _$$LoadedImplCopyWith(
+          _$LoadedImpl value, $Res Function(_$LoadedImpl) then) =
+      __$$LoadedImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({@ColorConverter() Color color});
 }
 
 /// @nodoc
-class __$$_LoadedCopyWithImpl<$Res> extends _$ThemeStateCopyWithImpl<$Res>
-    implements _$$_LoadedCopyWith<$Res> {
-  __$$_LoadedCopyWithImpl(_$_Loaded _value, $Res Function(_$_Loaded) _then)
-      : super(_value, (v) => _then(v as _$_Loaded));
+class __$$LoadedImplCopyWithImpl<$Res>
+    extends _$ThemeStateCopyWithImpl<$Res, _$LoadedImpl>
+    implements _$$LoadedImplCopyWith<$Res> {
+  __$$LoadedImplCopyWithImpl(
+      _$LoadedImpl _value, $Res Function(_$LoadedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Loaded get _value => super._value as _$_Loaded;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? color = freezed,
+    Object? color = null,
   }) {
-    return _then(_$_Loaded(
-      color == freezed
+    return _then(_$LoadedImpl(
+      null == color
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as Color,
@@ -502,12 +520,12 @@ class __$$_LoadedCopyWithImpl<$Res> extends _$ThemeStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Loaded implements _Loaded {
-  const _$_Loaded(@ColorConverter() this.color, {final String? $type})
+class _$LoadedImpl implements _Loaded {
+  const _$LoadedImpl(@ColorConverter() this.color, {final String? $type})
       : $type = $type ?? 'loaded';
 
-  factory _$_Loaded.fromJson(Map<String, dynamic> json) =>
-      _$$_LoadedFromJson(json);
+  factory _$LoadedImpl.fromJson(Map<String, dynamic> json) =>
+      _$$LoadedImplFromJson(json);
 
   @override
   @ColorConverter()
@@ -522,22 +540,22 @@ class _$_Loaded implements _Loaded {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Loaded &&
-            const DeepCollectionEquality().equals(other.color, color));
+            other is _$LoadedImpl &&
+            (identical(other.color, color) || other.color == color));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(color));
+  int get hashCode => Object.hash(runtimeType, color);
 
   @JsonKey(ignore: true)
   @override
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
-      __$$_LoadedCopyWithImpl<_$_Loaded>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
+      __$$LoadedImplCopyWithImpl<_$LoadedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -551,8 +569,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(@ColorConverter() Color color)? initial,
-    TResult Function(@ColorConverter() Color color)? loaded,
+    TResult? Function(@ColorConverter() Color color)? initial,
+    TResult? Function(@ColorConverter() Color color)? loaded,
   }) {
     return loaded?.call(color);
   }
@@ -582,8 +600,8 @@ class _$_Loaded implements _Loaded {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Initial value)? initial,
-    TResult Function(_Loaded value)? loaded,
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_Loaded value)? loaded,
   }) {
     return loaded?.call(this);
   }
@@ -603,20 +621,22 @@ class _$_Loaded implements _Loaded {
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_LoadedToJson(this);
+    return _$$LoadedImplToJson(
+      this,
+    );
   }
 }
 
 abstract class _Loaded implements ThemeState {
-  const factory _Loaded(@ColorConverter() final Color color) = _$_Loaded;
+  const factory _Loaded(@ColorConverter() final Color color) = _$LoadedImpl;
 
-  factory _Loaded.fromJson(Map<String, dynamic> json) = _$_Loaded.fromJson;
+  factory _Loaded.fromJson(Map<String, dynamic> json) = _$LoadedImpl.fromJson;
 
   @override
   @ColorConverter()
-  Color get color => throw _privateConstructorUsedError;
+  Color get color;
   @override
   @JsonKey(ignore: true)
-  _$$_LoadedCopyWith<_$_Loaded> get copyWith =>
+  _$$LoadedImplCopyWith<_$LoadedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

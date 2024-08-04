@@ -12,7 +12,7 @@ class ViewModelState {
   
 }
 
-class ViewModel extends ChangeNotifier {
+class ViewModel extends ChangeNotifier with Mountable {
 
   final userRepository = UserRepository();
   var _state = ViewModelState(ageTitle: '');
@@ -41,5 +41,32 @@ class ViewModel extends ChangeNotifier {
     final user = userRepository.user;
     _state = ViewModelState(ageTitle: user.age.toString()); 
     notifyListeners();
+  }
+}
+
+
+mixin Mountable on ChangeNotifier {
+  /// Start off as mounted.
+  bool _mounted = true;
+
+  @override
+  void dispose() {
+    // Unmount when disposed.
+    _mounted = false;
+    super.dispose();
+  }
+
+  /// Return true if we haven't yet been disposed.
+  ///
+  /// This is meant to emulate the [StatefulWidget.mounted] property for change
+  /// notifiers that we use as our view models.
+  bool get mounted => _mounted;
+
+  /// Notify listeners only if we haven't been disposed.
+  @override
+  void notifyListeners() {
+    if (mounted) {
+      super.notifyListeners();
+    }
   }
 }

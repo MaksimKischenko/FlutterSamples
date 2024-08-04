@@ -6,11 +6,12 @@ part of 'theme_bloc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Initial _$$_InitialFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Initial',
+_$InitialImpl _$$InitialImplFromJson(Map<String, dynamic> json) =>
+    $checkedCreate(
+      r'_$InitialImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Initial(
+        final val = _$InitialImpl(
           color: $checkedConvert(
               'color',
               (v) => v == null
@@ -23,17 +24,17 @@ _$_Initial _$$_InitialFromJson(Map<String, dynamic> json) => $checkedCreate(
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$_InitialToJson(_$_Initial instance) =>
+Map<String, dynamic> _$$InitialImplToJson(_$InitialImpl instance) =>
     <String, dynamic>{
       'color': const ColorConverter().toJson(instance.color),
       'runtimeType': instance.$type,
     };
 
-_$_Loaded _$$_LoadedFromJson(Map<String, dynamic> json) => $checkedCreate(
-      r'_$_Loaded',
+_$LoadedImpl _$$LoadedImplFromJson(Map<String, dynamic> json) => $checkedCreate(
+      r'_$LoadedImpl',
       json,
       ($checkedConvert) {
-        final val = _$_Loaded(
+        final val = _$LoadedImpl(
           $checkedConvert(
               'color',
               (v) =>
@@ -45,7 +46,8 @@ _$_Loaded _$$_LoadedFromJson(Map<String, dynamic> json) => $checkedCreate(
       fieldKeyMap: const {r'$type': 'runtimeType'},
     );
 
-Map<String, dynamic> _$$_LoadedToJson(_$_Loaded instance) => <String, dynamic>{
+Map<String, dynamic> _$$LoadedImplToJson(_$LoadedImpl instance) =>
+    <String, dynamic>{
       'color': const ColorConverter().toJson(instance.color),
       'runtimeType': instance.$type,
     };

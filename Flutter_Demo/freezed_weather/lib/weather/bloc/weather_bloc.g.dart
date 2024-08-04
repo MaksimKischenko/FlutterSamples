@@ -6,12 +6,12 @@ part of 'weather_bloc.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_WeatherState _$$_WeatherStateFromJson(Map<String, dynamic> json) =>
+_$WeatherStateImpl _$$WeatherStateImplFromJson(Map<String, dynamic> json) =>
     $checkedCreate(
-      r'_$_WeatherState',
+      r'_$WeatherStateImpl',
       json,
       ($checkedConvert) {
-        final val = _$_WeatherState(
+        final val = _$WeatherStateImpl(
           status: $checkedConvert(
               'status',
               (v) =>
@@ -32,10 +32,10 @@ _$_WeatherState _$$_WeatherStateFromJson(Map<String, dynamic> json) =>
       },
     );
 
-Map<String, dynamic> _$$_WeatherStateToJson(_$_WeatherState instance) =>
+Map<String, dynamic> _$$WeatherStateImplToJson(_$WeatherStateImpl instance) =>
     <String, dynamic>{
-      'status': _$WeatherStatusEnumMap[instance.status],
-      'temperatureUnits': _$TemperatureUnitsEnumMap[instance.temperatureUnits],
+      'status': _$WeatherStatusEnumMap[instance.status]!,
+      'temperatureUnits': _$TemperatureUnitsEnumMap[instance.temperatureUnits]!,
       'weather': instance.weather?.toJson(),
     };
 

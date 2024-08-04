@@ -5,12 +5,12 @@ class GoodExampleWidget extends StatelessWidget {
   const GoodExampleWidget({super.key});
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       body: SafeArea(
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
-            children: const [
+            children: [
               AgeTitle(),
               AgeIncrement(),
               AgeDecrement()         

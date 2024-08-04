@@ -19,4 +19,3 @@ void main() async {
   );
   runApp(WeatherApp(weatherRepository: WeatherRepository.instance()));
 }
-W

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'weather_bloc.dart';
 
@@ -12,7 +12,7 @@ part of 'weather_bloc.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$WeatherEvent {
@@ -25,9 +25,9 @@ mixin _$WeatherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? city)? started,
-    TResult Function()? refreshed,
-    TResult Function()? unitsChanged,
+    TResult? Function(String? city)? started,
+    TResult? Function()? refreshed,
+    TResult? Function()? unitsChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -47,9 +47,9 @@ mixin _$WeatherEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
-    TResult Function(_UnitsChanged value)? unitsChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Refreshed value)? refreshed,
+    TResult? Function(_UnitsChanged value)? unitsChanged,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,41 +66,44 @@ mixin _$WeatherEvent {
 abstract class $WeatherEventCopyWith<$Res> {
   factory $WeatherEventCopyWith(
           WeatherEvent value, $Res Function(WeatherEvent) then) =
-      _$WeatherEventCopyWithImpl<$Res>;
+      _$WeatherEventCopyWithImpl<$Res, WeatherEvent>;
 }
 
 /// @nodoc
-class _$WeatherEventCopyWithImpl<$Res> implements $WeatherEventCopyWith<$Res> {
+class _$WeatherEventCopyWithImpl<$Res, $Val extends WeatherEvent>
+    implements $WeatherEventCopyWith<$Res> {
   _$WeatherEventCopyWithImpl(this._value, this._then);
 
-  final WeatherEvent _value;
   // ignore: unused_field
-  final $Res Function(WeatherEvent) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 }
 
 /// @nodoc
-abstract class _$$_StartedCopyWith<$Res> {
-  factory _$$_StartedCopyWith(
-          _$_Started value, $Res Function(_$_Started) then) =
-      __$$_StartedCopyWithImpl<$Res>;
+abstract class _$$StartedImplCopyWith<$Res> {
+  factory _$$StartedImplCopyWith(
+          _$StartedImpl value, $Res Function(_$StartedImpl) then) =
+      __$$StartedImplCopyWithImpl<$Res>;
+  @useResult
   $Res call({String? city});
 }
 
 /// @nodoc
-class __$$_StartedCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
-    implements _$$_StartedCopyWith<$Res> {
-  __$$_StartedCopyWithImpl(_$_Started _value, $Res Function(_$_Started) _then)
-      : super(_value, (v) => _then(v as _$_Started));
+class __$$StartedImplCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$StartedImpl>
+    implements _$$StartedImplCopyWith<$Res> {
+  __$$StartedImplCopyWithImpl(
+      _$StartedImpl _value, $Res Function(_$StartedImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Started get _value => super._value as _$_Started;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? city = freezed,
   }) {
-    return _then(_$_Started(
-      city == freezed
+    return _then(_$StartedImpl(
+      freezed == city
           ? _value.city
           : city // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -110,8 +113,8 @@ class __$$_StartedCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Started implements _Started {
-  const _$_Started(this.city);
+class _$StartedImpl implements _Started {
+  const _$StartedImpl(this.city);
 
   @override
   final String? city;
@@ -122,21 +125,21 @@ class _$_Started implements _Started {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Started &&
-            const DeepCollectionEquality().equals(other.city, city));
+            other is _$StartedImpl &&
+            (identical(other.city, city) || other.city == city));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(city));
+  int get hashCode => Object.hash(runtimeType, city);
 
   @JsonKey(ignore: true)
   @override
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
-      __$$_StartedCopyWithImpl<_$_Started>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
+      __$$StartedImplCopyWithImpl<_$StartedImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
@@ -151,9 +154,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? city)? started,
-    TResult Function()? refreshed,
-    TResult Function()? unitsChanged,
+    TResult? Function(String? city)? started,
+    TResult? Function()? refreshed,
+    TResult? Function()? unitsChanged,
   }) {
     return started?.call(city);
   }
@@ -185,9 +188,9 @@ class _$_Started implements _Started {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
-    TResult Function(_UnitsChanged value)? unitsChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Refreshed value)? refreshed,
+    TResult? Function(_UnitsChanged value)? unitsChanged,
   }) {
     return started?.call(this);
   }
@@ -208,36 +211,34 @@ class _$_Started implements _Started {
 }
 
 abstract class _Started implements WeatherEvent {
-  const factory _Started(final String? city) = _$_Started;
+  const factory _Started(final String? city) = _$StartedImpl;
 
-  String? get city => throw _privateConstructorUsedError;
+  String? get city;
   @JsonKey(ignore: true)
-  _$$_StartedCopyWith<_$_Started> get copyWith =>
+  _$$StartedImplCopyWith<_$StartedImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class _$$_RefreshedCopyWith<$Res> {
-  factory _$$_RefreshedCopyWith(
-          _$_Refreshed value, $Res Function(_$_Refreshed) then) =
-      __$$_RefreshedCopyWithImpl<$Res>;
+abstract class _$$RefreshedImplCopyWith<$Res> {
+  factory _$$RefreshedImplCopyWith(
+          _$RefreshedImpl value, $Res Function(_$RefreshedImpl) then) =
+      __$$RefreshedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_RefreshedCopyWithImpl<$Res> extends _$WeatherEventCopyWithImpl<$Res>
-    implements _$$_RefreshedCopyWith<$Res> {
-  __$$_RefreshedCopyWithImpl(
-      _$_Refreshed _value, $Res Function(_$_Refreshed) _then)
-      : super(_value, (v) => _then(v as _$_Refreshed));
-
-  @override
-  _$_Refreshed get _value => super._value as _$_Refreshed;
+class __$$RefreshedImplCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$RefreshedImpl>
+    implements _$$RefreshedImplCopyWith<$Res> {
+  __$$RefreshedImplCopyWithImpl(
+      _$RefreshedImpl _value, $Res Function(_$RefreshedImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_Refreshed implements _Refreshed {
-  const _$_Refreshed();
+class _$RefreshedImpl implements _Refreshed {
+  const _$RefreshedImpl();
 
   @override
   String toString() {
@@ -245,9 +246,9 @@ class _$_Refreshed implements _Refreshed {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_Refreshed);
+        (other.runtimeType == runtimeType && other is _$RefreshedImpl);
   }
 
   @override
@@ -266,9 +267,9 @@ class _$_Refreshed implements _Refreshed {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? city)? started,
-    TResult Function()? refreshed,
-    TResult Function()? unitsChanged,
+    TResult? Function(String? city)? started,
+    TResult? Function()? refreshed,
+    TResult? Function()? unitsChanged,
   }) {
     return refreshed?.call();
   }
@@ -300,9 +301,9 @@ class _$_Refreshed implements _Refreshed {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
-    TResult Function(_UnitsChanged value)? unitsChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Refreshed value)? refreshed,
+    TResult? Function(_UnitsChanged value)? unitsChanged,
   }) {
     return refreshed?.call(this);
   }
@@ -323,32 +324,29 @@ class _$_Refreshed implements _Refreshed {
 }
 
 abstract class _Refreshed implements WeatherEvent {
-  const factory _Refreshed() = _$_Refreshed;
+  const factory _Refreshed() = _$RefreshedImpl;
 }
 
 /// @nodoc
-abstract class _$$_UnitsChangedCopyWith<$Res> {
-  factory _$$_UnitsChangedCopyWith(
-          _$_UnitsChanged value, $Res Function(_$_UnitsChanged) then) =
-      __$$_UnitsChangedCopyWithImpl<$Res>;
+abstract class _$$UnitsChangedImplCopyWith<$Res> {
+  factory _$$UnitsChangedImplCopyWith(
+          _$UnitsChangedImpl value, $Res Function(_$UnitsChangedImpl) then) =
+      __$$UnitsChangedImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$_UnitsChangedCopyWithImpl<$Res>
-    extends _$WeatherEventCopyWithImpl<$Res>
-    implements _$$_UnitsChangedCopyWith<$Res> {
-  __$$_UnitsChangedCopyWithImpl(
-      _$_UnitsChanged _value, $Res Function(_$_UnitsChanged) _then)
-      : super(_value, (v) => _then(v as _$_UnitsChanged));
-
-  @override
-  _$_UnitsChanged get _value => super._value as _$_UnitsChanged;
+class __$$UnitsChangedImplCopyWithImpl<$Res>
+    extends _$WeatherEventCopyWithImpl<$Res, _$UnitsChangedImpl>
+    implements _$$UnitsChangedImplCopyWith<$Res> {
+  __$$UnitsChangedImplCopyWithImpl(
+      _$UnitsChangedImpl _value, $Res Function(_$UnitsChangedImpl) _then)
+      : super(_value, _then);
 }
 
 /// @nodoc
 
-class _$_UnitsChanged implements _UnitsChanged {
-  const _$_UnitsChanged();
+class _$UnitsChangedImpl implements _UnitsChanged {
+  const _$UnitsChangedImpl();
 
   @override
   String toString() {
@@ -356,9 +354,9 @@ class _$_UnitsChanged implements _UnitsChanged {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _$_UnitsChanged);
+        (other.runtimeType == runtimeType && other is _$UnitsChangedImpl);
   }
 
   @override
@@ -377,9 +375,9 @@ class _$_UnitsChanged implements _UnitsChanged {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String? city)? started,
-    TResult Function()? refreshed,
-    TResult Function()? unitsChanged,
+    TResult? Function(String? city)? started,
+    TResult? Function()? refreshed,
+    TResult? Function()? unitsChanged,
   }) {
     return unitsChanged?.call();
   }
@@ -411,9 +409,9 @@ class _$_UnitsChanged implements _UnitsChanged {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_Started value)? started,
-    TResult Function(_Refreshed value)? refreshed,
-    TResult Function(_UnitsChanged value)? unitsChanged,
+    TResult? Function(_Started value)? started,
+    TResult? Function(_Refreshed value)? refreshed,
+    TResult? Function(_UnitsChanged value)? unitsChanged,
   }) {
     return unitsChanged?.call(this);
   }
@@ -434,7 +432,7 @@ class _$_UnitsChanged implements _UnitsChanged {
 }
 
 abstract class _UnitsChanged implements WeatherEvent {
-  const factory _UnitsChanged() = _$_UnitsChanged;
+  const factory _UnitsChanged() = _$UnitsChangedImpl;
 }
 
 WeatherState _$WeatherStateFromJson(Map<String, dynamic> json) {
@@ -457,7 +455,8 @@ mixin _$WeatherState {
 abstract class $WeatherStateCopyWith<$Res> {
   factory $WeatherStateCopyWith(
           WeatherState value, $Res Function(WeatherState) then) =
-      _$WeatherStateCopyWithImpl<$Res>;
+      _$WeatherStateCopyWithImpl<$Res, WeatherState>;
+  @useResult
   $Res call(
       {WeatherStatus status,
       TemperatureUnits temperatureUnits,
@@ -467,54 +466,59 @@ abstract class $WeatherStateCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WeatherStateCopyWithImpl<$Res> implements $WeatherStateCopyWith<$Res> {
+class _$WeatherStateCopyWithImpl<$Res, $Val extends WeatherState>
+    implements $WeatherStateCopyWith<$Res> {
   _$WeatherStateCopyWithImpl(this._value, this._then);
 
-  final WeatherState _value;
   // ignore: unused_field
-  final $Res Function(WeatherState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? temperatureUnits = freezed,
+    Object? status = null,
+    Object? temperatureUnits = null,
     Object? weather = freezed,
   }) {
     return _then(_value.copyWith(
-      status: status == freezed
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as WeatherStatus,
-      temperatureUnits: temperatureUnits == freezed
+      temperatureUnits: null == temperatureUnits
           ? _value.temperatureUnits
           : temperatureUnits // ignore: cast_nullable_to_non_nullable
               as TemperatureUnits,
-      weather: weather == freezed
+      weather: freezed == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as Weather?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $WeatherCopyWith<$Res>? get weather {
     if (_value.weather == null) {
       return null;
     }
 
     return $WeatherCopyWith<$Res>(_value.weather!, (value) {
-      return _then(_value.copyWith(weather: value));
+      return _then(_value.copyWith(weather: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_WeatherStateCopyWith<$Res>
+abstract class _$$WeatherStateImplCopyWith<$Res>
     implements $WeatherStateCopyWith<$Res> {
-  factory _$$_WeatherStateCopyWith(
-          _$_WeatherState value, $Res Function(_$_WeatherState) then) =
-      __$$_WeatherStateCopyWithImpl<$Res>;
+  factory _$$WeatherStateImplCopyWith(
+          _$WeatherStateImpl value, $Res Function(_$WeatherStateImpl) then) =
+      __$$WeatherStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {WeatherStatus status,
       TemperatureUnits temperatureUnits,
@@ -525,32 +529,30 @@ abstract class _$$_WeatherStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_WeatherStateCopyWithImpl<$Res>
-    extends _$WeatherStateCopyWithImpl<$Res>
-    implements _$$_WeatherStateCopyWith<$Res> {
-  __$$_WeatherStateCopyWithImpl(
-      _$_WeatherState _value, $Res Function(_$_WeatherState) _then)
-      : super(_value, (v) => _then(v as _$_WeatherState));
+class __$$WeatherStateImplCopyWithImpl<$Res>
+    extends _$WeatherStateCopyWithImpl<$Res, _$WeatherStateImpl>
+    implements _$$WeatherStateImplCopyWith<$Res> {
+  __$$WeatherStateImplCopyWithImpl(
+      _$WeatherStateImpl _value, $Res Function(_$WeatherStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_WeatherState get _value => super._value as _$_WeatherState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = freezed,
-    Object? temperatureUnits = freezed,
+    Object? status = null,
+    Object? temperatureUnits = null,
     Object? weather = freezed,
   }) {
-    return _then(_$_WeatherState(
-      status: status == freezed
+    return _then(_$WeatherStateImpl(
+      status: null == status
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as WeatherStatus,
-      temperatureUnits: temperatureUnits == freezed
+      temperatureUnits: null == temperatureUnits
           ? _value.temperatureUnits
           : temperatureUnits // ignore: cast_nullable_to_non_nullable
               as TemperatureUnits,
-      weather: weather == freezed
+      weather: freezed == weather
           ? _value.weather
           : weather // ignore: cast_nullable_to_non_nullable
               as Weather?,
@@ -560,14 +562,14 @@ class __$$_WeatherStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_WeatherState implements _WeatherState {
-  const _$_WeatherState(
+class _$WeatherStateImpl implements _WeatherState {
+  const _$WeatherStateImpl(
       {this.status = WeatherStatus.initial,
       this.temperatureUnits = TemperatureUnits.celsius,
       this.weather});
 
-  factory _$_WeatherState.fromJson(Map<String, dynamic> json) =>
-      _$$_WeatherStateFromJson(json);
+  factory _$WeatherStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$WeatherStateImplFromJson(json);
 
   @override
   @JsonKey()
@@ -584,32 +586,32 @@ class _$_WeatherState implements _WeatherState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_WeatherState &&
-            const DeepCollectionEquality().equals(other.status, status) &&
-            const DeepCollectionEquality()
-                .equals(other.temperatureUnits, temperatureUnits) &&
-            const DeepCollectionEquality().equals(other.weather, weather));
+            other is _$WeatherStateImpl &&
+            (identical(other.status, status) || other.status == status) &&
+            (identical(other.temperatureUnits, temperatureUnits) ||
+                other.temperatureUnits == temperatureUnits) &&
+            (identical(other.weather, weather) || other.weather == weather));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(status),
-      const DeepCollectionEquality().hash(temperatureUnits),
-      const DeepCollectionEquality().hash(weather));
+  int get hashCode =>
+      Object.hash(runtimeType, status, temperatureUnits, weather);
 
   @JsonKey(ignore: true)
   @override
-  _$$_WeatherStateCopyWith<_$_WeatherState> get copyWith =>
-      __$$_WeatherStateCopyWithImpl<_$_WeatherState>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$WeatherStateImplCopyWith<_$WeatherStateImpl> get copyWith =>
+      __$$WeatherStateImplCopyWithImpl<_$WeatherStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_WeatherStateToJson(this);
+    return _$$WeatherStateImplToJson(
+      this,
+    );
   }
 }
 
@@ -617,19 +619,19 @@ abstract class _WeatherState implements WeatherState {
   const factory _WeatherState(
       {final WeatherStatus status,
       final TemperatureUnits temperatureUnits,
-      final Weather? weather}) = _$_WeatherState;
+      final Weather? weather}) = _$WeatherStateImpl;
 
   factory _WeatherState.fromJson(Map<String, dynamic> json) =
-      _$_WeatherState.fromJson;
+      _$WeatherStateImpl.fromJson;
 
   @override
-  WeatherStatus get status => throw _privateConstructorUsedError;
+  WeatherStatus get status;
   @override
-  TemperatureUnits get temperatureUnits => throw _privateConstructorUsedError;
+  TemperatureUnits get temperatureUnits;
   @override
-  Weather? get weather => throw _privateConstructorUsedError;
+  Weather? get weather;
   @override
   @JsonKey(ignore: true)
-  _$$_WeatherStateCopyWith<_$_WeatherState> get copyWith =>
+  _$$WeatherStateImplCopyWith<_$WeatherStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

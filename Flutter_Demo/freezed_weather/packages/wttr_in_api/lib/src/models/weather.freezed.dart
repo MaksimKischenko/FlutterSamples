@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'weather.dart';
 
@@ -12,7 +12,7 @@ part of 'weather.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Weather {
@@ -29,7 +29,8 @@ mixin _$Weather {
 /// @nodoc
 abstract class $WeatherCopyWith<$Res> {
   factory $WeatherCopyWith(Weather value, $Res Function(Weather) then) =
-      _$WeatherCopyWithImpl<$Res>;
+      _$WeatherCopyWithImpl<$Res, Weather>;
+  @useResult
   $Res call(
       {double humidity,
       double pressure,
@@ -41,59 +42,64 @@ abstract class $WeatherCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$WeatherCopyWithImpl<$Res> implements $WeatherCopyWith<$Res> {
+class _$WeatherCopyWithImpl<$Res, $Val extends Weather>
+    implements $WeatherCopyWith<$Res> {
   _$WeatherCopyWithImpl(this._value, this._then);
 
-  final Weather _value;
   // ignore: unused_field
-  final $Res Function(Weather) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? humidity = freezed,
-    Object? pressure = freezed,
-    Object? temperature = freezed,
-    Object? weatherState = freezed,
-    Object? area = freezed,
+    Object? humidity = null,
+    Object? pressure = null,
+    Object? temperature = null,
+    Object? weatherState = null,
+    Object? area = null,
   }) {
     return _then(_value.copyWith(
-      humidity: humidity == freezed
+      humidity: null == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as double,
-      pressure: pressure == freezed
+      pressure: null == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
               as double,
-      temperature: temperature == freezed
+      temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
               as double,
-      weatherState: weatherState == freezed
+      weatherState: null == weatherState
           ? _value.weatherState
           : weatherState // ignore: cast_nullable_to_non_nullable
               as WeatherState,
-      area: area == freezed
+      area: null == area
           ? _value.area
           : area // ignore: cast_nullable_to_non_nullable
               as Area,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $AreaCopyWith<$Res> get area {
     return $AreaCopyWith<$Res>(_value.area, (value) {
-      return _then(_value.copyWith(area: value));
+      return _then(_value.copyWith(area: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
-  factory _$$_WeatherCopyWith(
-          _$_Weather value, $Res Function(_$_Weather) then) =
-      __$$_WeatherCopyWithImpl<$Res>;
+abstract class _$$WeatherImplCopyWith<$Res> implements $WeatherCopyWith<$Res> {
+  factory _$$WeatherImplCopyWith(
+          _$WeatherImpl value, $Res Function(_$WeatherImpl) then) =
+      __$$WeatherImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {double humidity,
       double pressure,
@@ -106,40 +112,40 @@ abstract class _$$_WeatherCopyWith<$Res> implements $WeatherCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
-    implements _$$_WeatherCopyWith<$Res> {
-  __$$_WeatherCopyWithImpl(_$_Weather _value, $Res Function(_$_Weather) _then)
-      : super(_value, (v) => _then(v as _$_Weather));
+class __$$WeatherImplCopyWithImpl<$Res>
+    extends _$WeatherCopyWithImpl<$Res, _$WeatherImpl>
+    implements _$$WeatherImplCopyWith<$Res> {
+  __$$WeatherImplCopyWithImpl(
+      _$WeatherImpl _value, $Res Function(_$WeatherImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Weather get _value => super._value as _$_Weather;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? humidity = freezed,
-    Object? pressure = freezed,
-    Object? temperature = freezed,
-    Object? weatherState = freezed,
-    Object? area = freezed,
+    Object? humidity = null,
+    Object? pressure = null,
+    Object? temperature = null,
+    Object? weatherState = null,
+    Object? area = null,
   }) {
-    return _then(_$_Weather(
-      humidity: humidity == freezed
+    return _then(_$WeatherImpl(
+      humidity: null == humidity
           ? _value.humidity
           : humidity // ignore: cast_nullable_to_non_nullable
               as double,
-      pressure: pressure == freezed
+      pressure: null == pressure
           ? _value.pressure
           : pressure // ignore: cast_nullable_to_non_nullable
               as double,
-      temperature: temperature == freezed
+      temperature: null == temperature
           ? _value.temperature
           : temperature // ignore: cast_nullable_to_non_nullable
               as double,
-      weatherState: weatherState == freezed
+      weatherState: null == weatherState
           ? _value.weatherState
           : weatherState // ignore: cast_nullable_to_non_nullable
               as WeatherState,
-      area: area == freezed
+      area: null == area
           ? _value.area
           : area // ignore: cast_nullable_to_non_nullable
               as Area,
@@ -149,8 +155,8 @@ class __$$_WeatherCopyWithImpl<$Res> extends _$WeatherCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Weather implements _Weather {
-  const _$_Weather(
+class _$WeatherImpl implements _Weather {
+  const _$WeatherImpl(
       {required this.humidity,
       required this.pressure,
       required this.temperature,
@@ -174,32 +180,30 @@ class _$_Weather implements _Weather {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Weather &&
-            const DeepCollectionEquality().equals(other.humidity, humidity) &&
-            const DeepCollectionEquality().equals(other.pressure, pressure) &&
-            const DeepCollectionEquality()
-                .equals(other.temperature, temperature) &&
-            const DeepCollectionEquality()
-                .equals(other.weatherState, weatherState) &&
-            const DeepCollectionEquality().equals(other.area, area));
+            other is _$WeatherImpl &&
+            (identical(other.humidity, humidity) ||
+                other.humidity == humidity) &&
+            (identical(other.pressure, pressure) ||
+                other.pressure == pressure) &&
+            (identical(other.temperature, temperature) ||
+                other.temperature == temperature) &&
+            (identical(other.weatherState, weatherState) ||
+                other.weatherState == weatherState) &&
+            (identical(other.area, area) || other.area == area));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(humidity),
-      const DeepCollectionEquality().hash(pressure),
-      const DeepCollectionEquality().hash(temperature),
-      const DeepCollectionEquality().hash(weatherState),
-      const DeepCollectionEquality().hash(area));
+      runtimeType, humidity, pressure, temperature, weatherState, area);
 
   @JsonKey(ignore: true)
   @override
-  _$$_WeatherCopyWith<_$_Weather> get copyWith =>
-      __$$_WeatherCopyWithImpl<_$_Weather>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$WeatherImplCopyWith<_$WeatherImpl> get copyWith =>
+      __$$WeatherImplCopyWithImpl<_$WeatherImpl>(this, _$identity);
 }
 
 abstract class _Weather implements Weather {
@@ -208,20 +212,20 @@ abstract class _Weather implements Weather {
       required final double pressure,
       required final double temperature,
       required final WeatherState weatherState,
-      required final Area area}) = _$_Weather;
+      required final Area area}) = _$WeatherImpl;
 
   @override
-  double get humidity => throw _privateConstructorUsedError;
+  double get humidity;
   @override
-  double get pressure => throw _privateConstructorUsedError;
+  double get pressure;
   @override
-  double get temperature => throw _privateConstructorUsedError;
+  double get temperature;
   @override
-  WeatherState get weatherState => throw _privateConstructorUsedError;
+  WeatherState get weatherState;
   @override
-  Area get area => throw _privateConstructorUsedError;
+  Area get area;
   @override
   @JsonKey(ignore: true)
-  _$$_WeatherCopyWith<_$_Weather> get copyWith =>
+  _$$WeatherImplCopyWith<_$WeatherImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

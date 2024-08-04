@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'area.dart';
 
@@ -12,7 +12,7 @@ part of 'area.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
 mixin _$Area {
@@ -28,7 +28,8 @@ mixin _$Area {
 /// @nodoc
 abstract class $AreaCopyWith<$Res> {
   factory $AreaCopyWith(Area value, $Res Function(Area) then) =
-      _$AreaCopyWithImpl<$Res>;
+      _$AreaCopyWithImpl<$Res, Area>;
+  @useResult
   $Res call(
       {String name, String country, String region, Coordinate coordinate});
 
@@ -36,53 +37,59 @@ abstract class $AreaCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$AreaCopyWithImpl<$Res> implements $AreaCopyWith<$Res> {
+class _$AreaCopyWithImpl<$Res, $Val extends Area>
+    implements $AreaCopyWith<$Res> {
   _$AreaCopyWithImpl(this._value, this._then);
 
-  final Area _value;
   // ignore: unused_field
-  final $Res Function(Area) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? country = freezed,
-    Object? region = freezed,
-    Object? coordinate = freezed,
+    Object? name = null,
+    Object? country = null,
+    Object? region = null,
+    Object? coordinate = null,
   }) {
     return _then(_value.copyWith(
-      name: name == freezed
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      country: country == freezed
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      region: region == freezed
+      region: null == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: coordinate == freezed
+      coordinate: null == coordinate
           ? _value.coordinate
           : coordinate // ignore: cast_nullable_to_non_nullable
               as Coordinate,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $CoordinateCopyWith<$Res> get coordinate {
     return $CoordinateCopyWith<$Res>(_value.coordinate, (value) {
-      return _then(_value.copyWith(coordinate: value));
+      return _then(_value.copyWith(coordinate: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_AreaCopyWith<$Res> implements $AreaCopyWith<$Res> {
-  factory _$$_AreaCopyWith(_$_Area value, $Res Function(_$_Area) then) =
-      __$$_AreaCopyWithImpl<$Res>;
+abstract class _$$AreaImplCopyWith<$Res> implements $AreaCopyWith<$Res> {
+  factory _$$AreaImplCopyWith(
+          _$AreaImpl value, $Res Function(_$AreaImpl) then) =
+      __$$AreaImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String name, String country, String region, Coordinate coordinate});
 
@@ -91,35 +98,34 @@ abstract class _$$_AreaCopyWith<$Res> implements $AreaCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_AreaCopyWithImpl<$Res> extends _$AreaCopyWithImpl<$Res>
-    implements _$$_AreaCopyWith<$Res> {
-  __$$_AreaCopyWithImpl(_$_Area _value, $Res Function(_$_Area) _then)
-      : super(_value, (v) => _then(v as _$_Area));
+class __$$AreaImplCopyWithImpl<$Res>
+    extends _$AreaCopyWithImpl<$Res, _$AreaImpl>
+    implements _$$AreaImplCopyWith<$Res> {
+  __$$AreaImplCopyWithImpl(_$AreaImpl _value, $Res Function(_$AreaImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Area get _value => super._value as _$_Area;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? name = freezed,
-    Object? country = freezed,
-    Object? region = freezed,
-    Object? coordinate = freezed,
+    Object? name = null,
+    Object? country = null,
+    Object? region = null,
+    Object? coordinate = null,
   }) {
-    return _then(_$_Area(
-      name: name == freezed
+    return _then(_$AreaImpl(
+      name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
               as String,
-      country: country == freezed
+      country: null == country
           ? _value.country
           : country // ignore: cast_nullable_to_non_nullable
               as String,
-      region: region == freezed
+      region: null == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
               as String,
-      coordinate: coordinate == freezed
+      coordinate: null == coordinate
           ? _value.coordinate
           : coordinate // ignore: cast_nullable_to_non_nullable
               as Coordinate,
@@ -129,8 +135,8 @@ class __$$_AreaCopyWithImpl<$Res> extends _$AreaCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Area implements _Area {
-  const _$_Area(
+class _$AreaImpl implements _Area {
+  const _$AreaImpl(
       {required this.name,
       required this.country,
       required this.region,
@@ -151,29 +157,26 @@ class _$_Area implements _Area {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Area &&
-            const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.country, country) &&
-            const DeepCollectionEquality().equals(other.region, region) &&
-            const DeepCollectionEquality()
-                .equals(other.coordinate, coordinate));
+            other is _$AreaImpl &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.country, country) || other.country == country) &&
+            (identical(other.region, region) || other.region == region) &&
+            (identical(other.coordinate, coordinate) ||
+                other.coordinate == coordinate));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(country),
-      const DeepCollectionEquality().hash(region),
-      const DeepCollectionEquality().hash(coordinate));
+  int get hashCode =>
+      Object.hash(runtimeType, name, country, region, coordinate);
 
   @JsonKey(ignore: true)
   @override
-  _$$_AreaCopyWith<_$_Area> get copyWith =>
-      __$$_AreaCopyWithImpl<_$_Area>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$AreaImplCopyWith<_$AreaImpl> get copyWith =>
+      __$$AreaImplCopyWithImpl<_$AreaImpl>(this, _$identity);
 }
 
 abstract class _Area implements Area {
@@ -181,19 +184,20 @@ abstract class _Area implements Area {
       {required final String name,
       required final String country,
       required final String region,
-      required final Coordinate coordinate}) = _$_Area;
+      required final Coordinate coordinate}) = _$AreaImpl;
 
   @override
-  String get name => throw _privateConstructorUsedError;
+  String get name;
   @override
-  String get country => throw _privateConstructorUsedError;
+  String get country;
   @override
-  String get region => throw _privateConstructorUsedError;
+  String get region;
   @override
-  Coordinate get coordinate => throw _privateConstructorUsedError;
+  Coordinate get coordinate;
   @override
   @JsonKey(ignore: true)
-  _$$_AreaCopyWith<_$_Area> get copyWith => throw _privateConstructorUsedError;
+  _$$AreaImplCopyWith<_$AreaImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -210,67 +214,71 @@ mixin _$Coordinate {
 abstract class $CoordinateCopyWith<$Res> {
   factory $CoordinateCopyWith(
           Coordinate value, $Res Function(Coordinate) then) =
-      _$CoordinateCopyWithImpl<$Res>;
+      _$CoordinateCopyWithImpl<$Res, Coordinate>;
+  @useResult
   $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class _$CoordinateCopyWithImpl<$Res> implements $CoordinateCopyWith<$Res> {
+class _$CoordinateCopyWithImpl<$Res, $Val extends Coordinate>
+    implements $CoordinateCopyWith<$Res> {
   _$CoordinateCopyWithImpl(this._value, this._then);
 
-  final Coordinate _value;
   // ignore: unused_field
-  final $Res Function(Coordinate) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = freezed,
-    Object? longitude = freezed,
+    Object? latitude = null,
+    Object? longitude = null,
   }) {
     return _then(_value.copyWith(
-      latitude: latitude == freezed
+      latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double,
-      longitude: longitude == freezed
+      longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_CoordinateCopyWith<$Res>
+abstract class _$$CoordinateImplCopyWith<$Res>
     implements $CoordinateCopyWith<$Res> {
-  factory _$$_CoordinateCopyWith(
-          _$_Coordinate value, $Res Function(_$_Coordinate) then) =
-      __$$_CoordinateCopyWithImpl<$Res>;
+  factory _$$CoordinateImplCopyWith(
+          _$CoordinateImpl value, $Res Function(_$CoordinateImpl) then) =
+      __$$CoordinateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({double latitude, double longitude});
 }
 
 /// @nodoc
-class __$$_CoordinateCopyWithImpl<$Res> extends _$CoordinateCopyWithImpl<$Res>
-    implements _$$_CoordinateCopyWith<$Res> {
-  __$$_CoordinateCopyWithImpl(
-      _$_Coordinate _value, $Res Function(_$_Coordinate) _then)
-      : super(_value, (v) => _then(v as _$_Coordinate));
+class __$$CoordinateImplCopyWithImpl<$Res>
+    extends _$CoordinateCopyWithImpl<$Res, _$CoordinateImpl>
+    implements _$$CoordinateImplCopyWith<$Res> {
+  __$$CoordinateImplCopyWithImpl(
+      _$CoordinateImpl _value, $Res Function(_$CoordinateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Coordinate get _value => super._value as _$_Coordinate;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? latitude = freezed,
-    Object? longitude = freezed,
+    Object? latitude = null,
+    Object? longitude = null,
   }) {
-    return _then(_$_Coordinate(
-      latitude: latitude == freezed
+    return _then(_$CoordinateImpl(
+      latitude: null == latitude
           ? _value.latitude
           : latitude // ignore: cast_nullable_to_non_nullable
               as double,
-      longitude: longitude == freezed
+      longitude: null == longitude
           ? _value.longitude
           : longitude // ignore: cast_nullable_to_non_nullable
               as double,
@@ -280,8 +288,8 @@ class __$$_CoordinateCopyWithImpl<$Res> extends _$CoordinateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_Coordinate implements _Coordinate {
-  const _$_Coordinate({required this.latitude, required this.longitude});
+class _$CoordinateImpl implements _Coordinate {
+  const _$CoordinateImpl({required this.latitude, required this.longitude});
 
   @override
   final double latitude;
@@ -294,37 +302,37 @@ class _$_Coordinate implements _Coordinate {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Coordinate &&
-            const DeepCollectionEquality().equals(other.latitude, latitude) &&
-            const DeepCollectionEquality().equals(other.longitude, longitude));
+            other is _$CoordinateImpl &&
+            (identical(other.latitude, latitude) ||
+                other.latitude == latitude) &&
+            (identical(other.longitude, longitude) ||
+                other.longitude == longitude));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(latitude),
-      const DeepCollectionEquality().hash(longitude));
+  int get hashCode => Object.hash(runtimeType, latitude, longitude);
 
   @JsonKey(ignore: true)
   @override
-  _$$_CoordinateCopyWith<_$_Coordinate> get copyWith =>
-      __$$_CoordinateCopyWithImpl<_$_Coordinate>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$CoordinateImplCopyWith<_$CoordinateImpl> get copyWith =>
+      __$$CoordinateImplCopyWithImpl<_$CoordinateImpl>(this, _$identity);
 }
 
 abstract class _Coordinate implements Coordinate {
   const factory _Coordinate(
       {required final double latitude,
-      required final double longitude}) = _$_Coordinate;
+      required final double longitude}) = _$CoordinateImpl;
 
   @override
-  double get latitude => throw _privateConstructorUsedError;
+  double get latitude;
   @override
-  double get longitude => throw _privateConstructorUsedError;
+  double get longitude;
   @override
   @JsonKey(ignore: true)
-  _$$_CoordinateCopyWith<_$_Coordinate> get copyWith =>
+  _$$CoordinateImplCopyWith<_$CoordinateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
