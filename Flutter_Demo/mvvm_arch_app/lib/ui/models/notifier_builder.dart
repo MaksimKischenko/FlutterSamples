@@ -13,8 +13,8 @@ class ChangeNotifierBuilder<T extends ChangeNotifier> extends AnimatedWidget {
   const ChangeNotifierBuilder({
     required this.notifier,
     required this.builder,
-    Key? key
-  }) : super(key: key, listenable: notifier);
+    super.key
+  }) : super(listenable: notifier);
 
   @override
   Widget build(BuildContext context) {
