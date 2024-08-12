@@ -63,7 +63,6 @@ class _FlightWidgetState extends State<FlightWidget> {
   }
 
 
-
   @override
   void dispose() {
     _dataProvider?.dispose();
