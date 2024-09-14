@@ -3,7 +3,7 @@
 import 'package:rxdart/subjects.dart';
 import 'package:stream_app/models/user_model.dart';
 
-abstract final interface class IUserRepository {
+abstract  interface class IUserRepository {
   void addUser(User user); 
 
   void deleteUser(User user); 
