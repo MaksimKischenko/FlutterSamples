@@ -1,0 +1,23 @@
+{
+    "dart.lineLength": 100,
+    "[dart]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit",
+            "source.fixAll": "explicit"
+        },
+        "editor.bracketPairColorization.enabled": true,
+        "editor.rulers": [
+            100
+        ]
+    },
+    "[makefile]": {
+        // Indent Makefiles with tabs instead of spaces.
+        "editor.insertSpaces": false,
+        "editor.detectIndentation": false
+    },
+    "dart.runPubGetOnPubspecChanges": "never",
+    "yaml.format.printWidth": 100,
+    "java.configuration.updateBuildConfiguration": "interactive"
+}
