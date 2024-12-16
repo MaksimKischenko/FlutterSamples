@@ -326,6 +326,7 @@ class AppTheme {
           onErrorContainer: AppColors.errorDark,
           surfaceTint: AppColors.surfaceTint,
           tertiary: AppColors.yellow,
+          onTertiary: AppColors.yellowLight,
           primaryContainer: AppColors.primaryContainer,
           onPrimaryContainer: AppColors.onPrimaryContainer,
           secondary: secondary ?? AppColors.secondary,

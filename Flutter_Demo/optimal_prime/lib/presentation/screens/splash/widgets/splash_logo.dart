@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:optimal_prime/presentation/widgets/shimmer.dart';
-import 'package:optimal_prime/utils/core_asset.dart';
 import 'package:optimal_prime/utils/sizes.dart';
+import 'package:optimal_prime/utils/svg_asset.dart';
 
 class SplashLogo extends StatelessWidget {
   const SplashLogo({
@@ -35,7 +35,7 @@ class SplashLogo extends StatelessWidget {
             isLoading: isAnimated,
             child: Center(
               child: SvgPicture.asset(
-                CoreAsset.splash,
+                SvgAsset.splash,
                 width: KSize.avatar3XL,
                 height: KSize.avatar3XL,
               ),

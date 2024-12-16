@@ -1,4 +1,6 @@
+import 'package:battery_plus/battery_plus.dart';
 import 'package:get_it/get_it.dart';
+import 'package:optimal_prime/domain/services/battery_info_service.dart';
 import 'package:optimal_prime/utils/lifecycle_watcher.dart';
 
 import 'domain/services/local_cache_service.dart';
@@ -11,7 +13,11 @@ mixin AppInjector {
     GetIt.instance
       ..registerLazySingleton<SimpleBlocObserver>(SimpleBlocObserver.new)
       ..registerLazySingleton<CacheService>(CacheService.new)
-      ..registerLazySingleton<LifecycleWatcher>(LifecycleWatcher.new);
+      ..registerLazySingleton<LifecycleWatcher>(LifecycleWatcher.new)
+      ..registerLazySingleton<BatteryInfoService>(() => BatteryInfoService(
+            battery: Battery(),
+          ));
+
     //   final dio = Dio();
     //   dio.options.connectTimeout = const Duration(milliseconds: 10000);
     //   dio.options.receiveTimeout = const Duration(milliseconds: 25000);

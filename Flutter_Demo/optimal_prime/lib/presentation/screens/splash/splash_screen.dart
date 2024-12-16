@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:optimal_prime/presentation/screens/splash/widgets/splash_logo.dart';
+import 'package:go_router/go_router.dart';
+import 'package:lottie/lottie.dart';
+import 'package:optimal_prime/generated/translations.g.dart';
+import 'package:optimal_prime/presentation/screens/intro/intro_screen.dart';
 import 'package:optimal_prime/utils/build_context_extensions.dart';
+import 'package:optimal_prime/utils/gaps.dart';
+import 'package:optimal_prime/utils/lottie_asset.dart';
+import 'package:optimal_prime/utils/sizes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -24,7 +30,7 @@ class _SplashScreenState extends State<SplashScreen> {
             milliseconds: _bLoaderMinimumDurationInMilliseconds,
           ),
           () async {
-            // ensure that the animation plays at least once
+            context.go(IntroScren.route);
           },
         ),
       ]);
@@ -38,19 +44,23 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         backgroundColor: context.colors.surface,
-        body: const SizedBox(
-          child: Center(
-            child: SplashLogo(
-              isAnimated: true,
-            ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Lottie.asset(
+                LottieAsset.splash,
+                width: KSize.avatar3XL,
+                height: KSize.avatar3XL,
+                fit: BoxFit.contain,
+              ),
+              Gap.verticalMaterial,
+              Text(
+                context.t.mobileScreens.splash.loadingMessage,
+                style: context.textTheme.bodyLarge,
+              )
+            ],
           ),
         ),
       );
 }
-
-
-// Lottie.asset(
-//                   MinutesCallingAsset.preCallDialogLoading.path,
-//                   fit: BoxFit.contain,
-//                   package: 'minutes_calling',
-//                 ),

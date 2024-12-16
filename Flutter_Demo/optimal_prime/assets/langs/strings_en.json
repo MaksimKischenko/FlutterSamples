@@ -1,0 +1,15 @@
+{
+  "mobileScreens": {
+    "splash": {
+      "loadingMessage": "Please wait"
+    },
+    "intro": {
+      "title1": "Scan Battery Health",
+      "description1": "The app will collect data on your battery's condition to improve its efficiency and extend its battery life.",
+      "title2": "Track the Dynamics",
+      "description2": "The app will display continuous battery health trends over specified time intervals.",
+      "title3": "Find the Balance",
+      "description3": "We will find the optimal battery usage balance to ensure prolonged battery life and health."
+    }
+  }
+}

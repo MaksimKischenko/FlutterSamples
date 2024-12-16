@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:optimal_prime/domain/entities/event_types.dart';
 import 'package:optimal_prime/domain/services/local_cache_service.dart';
-import 'package:optimal_prime/presentation/bloc/stream_manager/stream_manager_bloc.dart';
+import 'package:optimal_prime/generated/translations.g.dart';
+import 'package:optimal_prime/presentation/bloc/battery_info/battery_info_bloc.dart';
 import 'package:optimal_prime/presentation/bloc/theme/theme_cubit.dart';
 import 'package:optimal_prime/simple_bloc_observer.dart';
 
+import 'domain/services/battery_info_service.dart';
 import 'utils/functions.dart';
 import 'utils/lifecycle_watcher.dart';
 
@@ -39,29 +40,23 @@ class _AppWrapperState extends State<AppWrapper> {
   }
 
   @override
-  Widget build(BuildContext context) => MultiBlocProvider(
-        providers: [
-          BlocProvider<StreamManagerBloc>(
-            create: (context) =>
-                StreamManagerBloc()..add(const FireEvent(type: EventType.testEvent)),
-          ),
-          BlocProvider<ThemeCubit>(
-            create: (context) => ThemeCubit(
-              cacheService: getdep<CacheService>(),
+  Widget build(BuildContext context) => TranslationProvider(
+        child: MultiBlocProvider(
+          providers: [
+            BlocProvider<BatteryInfoBloc>(
+              create: (context) => BatteryInfoBloc(batteryInfoService: getdep<BatteryInfoService>())
+                ..add(BatteryInfoListen()),
             ),
+            BlocProvider<ThemeCubit>(
+              create: (context) => ThemeCubit(
+                cacheService: getdep<CacheService>(),
+              ),
+            ),
+          ],
+          child: BlocListener<BatteryInfoBloc, BatteryInfoState>(
+            listener: (context, state) {},
+            child: widget.child,
           ),
-        ],
-        child: BlocListener<StreamManagerBloc, StreamManagerState>(
-          listener: (context, state) {
-            if (state is StreamManagerRecieved<EventType>) {
-              switch (state.recievedEvent) {
-                case EventType.testEvent:
-                  break;
-                default:
-              }
-            }
-          },
-          child: widget.child,
         ),
       );
 }

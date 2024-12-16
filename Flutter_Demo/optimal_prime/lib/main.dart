@@ -5,13 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:optimal_prime/bootstrap.dart';
 import 'package:optimal_prime/utils/logger/log.dart';
 
-
-
-
-
 Future<void> main() async {
   await runZonedGuarded(() async {
     WidgetsFlutterBinding.ensureInitialized();
+
     SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle.light.copyWith(
         statusBarColor: Colors.transparent,

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:optimal_prime/presentation/screens/home/home_screen.dart';
+import 'package:optimal_prime/presentation/screens/intro/intro_screen.dart';
 
 import 'presentation/screens/splash/splash_screen.dart';
 
@@ -17,15 +19,24 @@ final router = GoRouter(
         child: const SplashScreen(),
       ),
     ),
-    // GoRoute(
-    //   path: '/home',
-    //   pageBuilder: (context, state) => CustomTransitionPage<void>(
-    //     key: state.pageKey,
-    //     transitionsBuilder: (context, animation, secondaryAnimation, child) =>
-    //         FadeTransition(opacity: animation, child: child),
-    //     child: const HomeScreen(),
-    //   ),
-    // ),
+    GoRoute(
+      path: '/intro',
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
+        child: const IntroScren(),
+      ),
+    ),
+    GoRoute(
+      path: '/home',
+      pageBuilder: (context, state) => CustomTransitionPage<void>(
+        key: state.pageKey,
+        transitionsBuilder: (context, animation, secondaryAnimation, child) =>
+            FadeTransition(opacity: animation, child: child),
+        child: const HomeScreen(),
+      ),
+    ),
   ],
 );
 
