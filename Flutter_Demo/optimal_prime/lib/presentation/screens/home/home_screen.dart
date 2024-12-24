@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:optimal_prime/presentation/screens/home/widgets/battery_info_card_sliver.dart';
+import 'package:optimal_prime/presentation/screens/home/widgets/battery_task_card_sliver.dart';
+import 'package:optimal_prime/presentation/screens/home/widgets/connectivity_info_sliver.dart';
 import 'package:optimal_prime/utils/build_context_extensions.dart';
-import 'package:optimal_prime/utils/lottie_asset.dart';
 import 'package:optimal_prime/utils/sizes.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -20,47 +20,66 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(
-          title: const Text('Battery'),
-          actions: [
-            Lottie.asset(
-              LottieAsset.low,
-              width: KSize.avatarXSHalf,
-              height: KSize.avatarXSHalf,
-              fit: BoxFit.contain,
-            ),
-          ],
+          // title: const Text('Battery'),
+          actions: const [],
         ),
         backgroundColor: context.colors.surface,
         body: SafeArea(
           child: Center(
             child: CustomScrollView(
               controller: _scrollController,
-              slivers: const [
-                // SliverToBoxAdapter(
-                //   child: Center(
-                //     child: Padding(
-                //       padding: const EdgeInsets.only(
-                //         left: KSize.margin4x,
-                //         right: KSize.margin4x,
-                //         top: KSize.margin1x,
-                //         bottom: KSize.margin2Halfx,
-                //       ),
-                //       child: Hero(
-                //         tag: 'title',
-                //         child: Text(
-                //           'Battery',
-                //           style: context.textTheme.displayLarge,
-                //         ),
-                //       ),
-                //     ),
-                //   ),
-                // ),
-                SliverPadding(
-                  padding: EdgeInsets.symmetric(
-                    vertical: KSize.margin6x,
+              slivers: [
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(KSize.margin4x),
+                    child: Hero(
+                      tag: 'title',
+                      child: Text(
+                        'Connectivity info',
+                        style: context.textTheme.headlineMedium
+                            ?.copyWith(color: context.colors.secondary),
+                      ),
+                    ),
                   ),
                 ),
-                BatteryInfoCardSliver()
+                const ConnectivityInfoSliver(),
+                const SliverPadding(
+                  padding: EdgeInsets.symmetric(
+                    vertical: KSize.margin2x,
+                  ),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(KSize.margin4x),
+                    child: Hero(
+                      tag: 'title',
+                      child: Text(
+                        'Battery info',
+                        style: context.textTheme.headlineMedium
+                            ?.copyWith(color: context.colors.primary),
+                      ),
+                    ),
+                  ),
+                ),
+                const BatteryInfoCardSliver(),
+                const SliverPadding(
+                  padding: EdgeInsets.symmetric(vertical: KSize.margin2x),
+                ),
+                SliverToBoxAdapter(
+                  child: Padding(
+                    padding: const EdgeInsets.all(KSize.margin4x),
+                    child: Hero(
+                      tag: 'title',
+                      child: Text(
+                        'Task manager',
+                        style: context.textTheme.headlineMedium
+                            ?.copyWith(color: context.colors.tertiary),
+                      ),
+                    ),
+                  ),
+                ),
+                BatteryTaskCardSliver(),
+                SliverPadding(padding: EdgeInsets.only(bottom: context.safeBottomPadding)),
               ],
             ),
           ),

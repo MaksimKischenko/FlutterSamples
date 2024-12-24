@@ -1,5 +1,10 @@
 import 'dart:math';
 
+import 'package:flutter/material.dart';
+import 'package:optimal_prime/domain/entities/battery_info.dart';
+import 'package:optimal_prime/generated/translations.g.dart';
+import 'package:optimal_prime/utils/build_context_extensions.dart';
+
 class MockedBattery {
   final _random = Random();
   Future<int> get batteryLevel async => _random.nextInt(101);
@@ -7,7 +12,7 @@ class MockedBattery {
   Stream<MockedBatteryState> get onBatteryStateChanged async* {
     while (true) {
       yield MockedBatteryState.values[_random.nextInt(MockedBatteryState.values.length)];
-      await Future.delayed(const Duration(seconds: 30));
+      await Future.delayed(const Duration(seconds: 5));
     }
   }
 }
@@ -32,4 +37,31 @@ enum MockedBatteryState {
 
   /// The state of the battery is unknown.
   unknown;
+}
+
+extension BatteryInfoExtension on BatteryInfo {
+  String batteryStateByName(BuildContext context) {
+    switch (batteryState) {
+      case MockedBatteryState.full:
+        return context.t.mobileScreens.home.batteryInfo.chargingState.full;
+      case MockedBatteryState.charging:
+        return context.t.mobileScreens.home.batteryInfo.chargingState.charging;
+      case MockedBatteryState.discharging:
+        return context.t.mobileScreens.home.batteryInfo.chargingState.discharging;
+      default:
+        return context.t.mobileScreens.home.batteryInfo.chargingState.unknown;
+    }
+  }
+
+  Color batteryStateByColor(BuildContext context) {
+    switch (batteryState) {
+      case MockedBatteryState.full:
+      case MockedBatteryState.charging:
+        return context.colors.primary;
+      case MockedBatteryState.discharging:
+        return context.colors.error;
+      default:
+        return context.colors.onSecondaryContainer;
+    }
+  }
 }

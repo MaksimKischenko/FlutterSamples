@@ -7,8 +7,6 @@ sealed class BatteryInfoState extends Equatable {
   List<Object?> get props => [];
 }
 
-final class BatteryInfoInitial extends BatteryInfoState {}
-
 final class BatteryInfoLoading extends BatteryInfoState {}
 
 final class BatteryInfoUpdated extends BatteryInfoState {

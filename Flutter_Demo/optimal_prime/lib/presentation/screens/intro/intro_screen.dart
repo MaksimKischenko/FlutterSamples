@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/presentation/screens/home/home_screen.dart';
+import 'package:optimal_prime/utils/assets_provider.dart';
 import 'package:optimal_prime/utils/build_context_extensions.dart';
-import 'package:optimal_prime/utils/lottie_asset.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import 'widgets/page_view_item.dart';
@@ -63,14 +63,17 @@ class _IntroScrenState extends State<IntroScren> {
                 ),
               ],
             ),
-            SmoothPageIndicator(
-              controller: _pageViewController,
-              count: _intoCount,
-              effect: WormEffect(
-                dotColor: context.colors.onTertiaryContainer,
-                activeDotColor: context.colors.secondary,
+            Padding(
+              padding: EdgeInsets.only(bottom: context.safeBottomPadding),
+              child: SmoothPageIndicator(
+                controller: _pageViewController,
+                count: _intoCount,
+                effect: WormEffect(
+                  dotColor: context.colors.onTertiaryContainer,
+                  activeDotColor: context.colors.secondary,
+                ),
               ),
-            )
+            ),
           ],
         ),
       ),

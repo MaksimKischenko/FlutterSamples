@@ -9,7 +9,7 @@ part 'battery_info_state.dart';
 class BatteryInfoBloc extends Bloc<BatteryInfoEvent, BatteryInfoState> {
   BatteryInfoBloc({required BatteryInfoService batteryInfoService})
       : _batteryInfoService = batteryInfoService,
-        super(BatteryInfoInitial()) {
+        super(BatteryInfoLoading()) {
     on<BatteryInfoEvent>(_onEvent);
   }
 
@@ -33,6 +33,7 @@ class BatteryInfoBloc extends Bloc<BatteryInfoEvent, BatteryInfoState> {
     BatteryInfoListen event,
     Emitter<BatteryInfoState> emit,
   ) async {
+    await Future.delayed(const Duration(seconds: 2));
     await emit.forEach<BatteryInfo?>(
       _batteryInfoService.batteryInfoStream!,
       onData: (data) => BatteryInfoUpdated(batteryInfo: data),

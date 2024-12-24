@@ -100,13 +100,19 @@ class AppColors {
 
   static const Color insuranceColor = Color(0xFF0166DD);
 
-  static const Color insuranceGradientColor = Color(0xFF0075FF);
+  static const Color gradientColor = Color(0xFF0075FF);
 
-  static const Color insuranceDarkGradientColor = Color(0xFF0060D0);
+  static const Color darkGradientColor = Color(0xFF0060D0);
 
   static const Color insuranceButtonColor = Color(0xFF183224);
 
   static const Color chevronColor = Color(0xFF71786E);
+
+  static const Color greenDarkGradientColor = Color(0xFF71BBA0);
+
+  static const Color blueAccentColor = Color(0xFF6BE3FF);
+
+  static const Color greenAccentGradientColor = Color(0xFF069F90);
 
   static const LinearGradient primaryGradient = LinearGradient(
     colors: [

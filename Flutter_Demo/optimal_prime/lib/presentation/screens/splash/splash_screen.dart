@@ -3,9 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:lottie/lottie.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/presentation/screens/intro/intro_screen.dart';
+import 'package:optimal_prime/utils/assets_provider.dart';
 import 'package:optimal_prime/utils/build_context_extensions.dart';
 import 'package:optimal_prime/utils/gaps.dart';
-import 'package:optimal_prime/utils/lottie_asset.dart';
 import 'package:optimal_prime/utils/sizes.dart';
 
 class SplashScreen extends StatefulWidget {

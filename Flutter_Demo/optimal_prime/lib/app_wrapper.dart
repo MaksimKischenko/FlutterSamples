@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:optimal_prime/domain/services/connectivity_service.dart';
 import 'package:optimal_prime/domain/services/local_cache_service.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/presentation/bloc/battery_info/battery_info_bloc.dart';
+import 'package:optimal_prime/presentation/bloc/connectivity/connectivity_bloc.dart';
 import 'package:optimal_prime/presentation/bloc/theme/theme_cubit.dart';
 import 'package:optimal_prime/simple_bloc_observer.dart';
 
@@ -45,7 +47,14 @@ class _AppWrapperState extends State<AppWrapper> {
           providers: [
             BlocProvider<BatteryInfoBloc>(
               create: (context) => BatteryInfoBloc(batteryInfoService: getdep<BatteryInfoService>())
-                ..add(BatteryInfoListen()),
+                ..add(
+                  BatteryInfoListen(),
+                ),
+            ),
+            BlocProvider<ConnectivityBloc>(
+              create: (context) => ConnectivityBloc(
+                connectivityService: getdep<ConnectivityService>(),
+              )..add(ConnectivityListen()),
             ),
             BlocProvider<ThemeCubit>(
               create: (context) => ThemeCubit(

@@ -10,6 +10,25 @@
       "description2": "The app will display continuous battery health trends over specified time intervals.",
       "title3": "Find the Balance",
       "description3": "We will find the optimal battery usage balance to ensure prolonged battery life and health."
+    },
+    "home": {
+      "batteryInfo": {
+        "levelTitle": "Battery level",
+        "saveMode": "Save Mode",
+        "saveModeOff": "Off",
+        "chargingStateTitle": "Charging state",
+        "chargingState": {
+          "full": "Fully charged",
+          "charging": "Charging...",
+          "discharging": "Losing energy",
+          "unknown": "Determining..."
+        },
+        "timeToChargeTitle": "Time to charge",
+         "timeToChargeState": {
+          "yes": "Necessary",
+          "no": "No"
+         }
+      }
     }
   }
 }

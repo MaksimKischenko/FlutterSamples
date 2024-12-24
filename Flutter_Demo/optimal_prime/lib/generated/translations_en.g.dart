@@ -41,6 +41,7 @@ class _TranslationsMobileScreensEn extends TranslationsMobileScreensRu {
 	// Translations
 	@override late final _TranslationsMobileScreensSplashEn splash = _TranslationsMobileScreensSplashEn._(_root);
 	@override late final _TranslationsMobileScreensIntroEn intro = _TranslationsMobileScreensIntroEn._(_root);
+	@override late final _TranslationsMobileScreensHomeEn home = _TranslationsMobileScreensHomeEn._(_root);
 }
 
 // Path: mobileScreens.splash
@@ -66,4 +67,54 @@ class _TranslationsMobileScreensIntroEn extends TranslationsMobileScreensIntroRu
 	@override String get description2 => 'The app will display continuous battery health trends over specified time intervals.';
 	@override String get title3 => 'Find the Balance';
 	@override String get description3 => 'We will find the optimal battery usage balance to ensure prolonged battery life and health.';
+}
+
+// Path: mobileScreens.home
+class _TranslationsMobileScreensHomeEn extends TranslationsMobileScreensHomeRu {
+	_TranslationsMobileScreensHomeEn._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override late final _TranslationsMobileScreensHomeBatteryInfoEn batteryInfo = _TranslationsMobileScreensHomeBatteryInfoEn._(_root);
+}
+
+// Path: mobileScreens.home.batteryInfo
+class _TranslationsMobileScreensHomeBatteryInfoEn extends TranslationsMobileScreensHomeBatteryInfoRu {
+	_TranslationsMobileScreensHomeBatteryInfoEn._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get levelTitle => 'Battery level';
+	@override String get saveMode => 'Save Mode';
+	@override String get saveModeOff => 'Off';
+	@override String get chargingStateTitle => 'Charging state';
+	@override late final _TranslationsMobileScreensHomeBatteryInfoChargingStateEn chargingState = _TranslationsMobileScreensHomeBatteryInfoChargingStateEn._(_root);
+	@override String get timeToChargeTitle => 'Time to charge';
+	@override late final _TranslationsMobileScreensHomeBatteryInfoTimeToChargeStateEn timeToChargeState = _TranslationsMobileScreensHomeBatteryInfoTimeToChargeStateEn._(_root);
+}
+
+// Path: mobileScreens.home.batteryInfo.chargingState
+class _TranslationsMobileScreensHomeBatteryInfoChargingStateEn extends TranslationsMobileScreensHomeBatteryInfoChargingStateRu {
+	_TranslationsMobileScreensHomeBatteryInfoChargingStateEn._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get full => 'Fully charged';
+	@override String get charging => 'Charging...';
+	@override String get discharging => 'Losing energy';
+	@override String get unknown => 'Determining...';
+}
+
+// Path: mobileScreens.home.batteryInfo.timeToChargeState
+class _TranslationsMobileScreensHomeBatteryInfoTimeToChargeStateEn extends TranslationsMobileScreensHomeBatteryInfoTimeToChargeStateRu {
+	_TranslationsMobileScreensHomeBatteryInfoTimeToChargeStateEn._(TranslationsEn root) : this._root = root, super.internal(root);
+
+	final TranslationsEn _root; // ignore: unused_field
+
+	// Translations
+	@override String get yes => 'Necessary';
+	@override String get no => 'No';
 }

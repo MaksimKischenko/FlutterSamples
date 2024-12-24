@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:optimal_prime/utils/sizes.dart';
 
-mixin Gap {
+class Gap {
   ///height: [KSize.margin4point5x]=18dp
   static const margin4point5x = SizedBox(height: KSize.margin4point5x);
 
