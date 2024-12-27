@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:optimal_prime/domain/services/connectivity_service.dart';
+import 'package:optimal_prime/domain/services/device_resource_monitoring_service.dart';
 import 'package:optimal_prime/domain/services/local_cache_service.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/presentation/bloc/battery_info/battery_info_bloc.dart';
-import 'package:optimal_prime/presentation/bloc/connectivity/connectivity_bloc.dart';
+import 'package:optimal_prime/presentation/bloc/resource_monitoring/resource_monitoring_bloc.dart';
 import 'package:optimal_prime/presentation/bloc/theme/theme_cubit.dart';
 import 'package:optimal_prime/simple_bloc_observer.dart';
 
@@ -51,10 +51,10 @@ class _AppWrapperState extends State<AppWrapper> {
                   BatteryInfoListen(),
                 ),
             ),
-            BlocProvider<ConnectivityBloc>(
-              create: (context) => ConnectivityBloc(
-                connectivityService: getdep<ConnectivityService>(),
-              )..add(ConnectivityListen()),
+            BlocProvider<ResourceMonitoringBloc>(
+              create: (context) => ResourceMonitoringBloc(
+                resourceMonitoringService: getdep<DeviceResourceMonitoringService>(),
+              )..add(ResourceMonitoringListen()),
             ),
             BlocProvider<ThemeCubit>(
               create: (context) => ThemeCubit(

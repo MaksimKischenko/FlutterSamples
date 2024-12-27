@@ -11,6 +11,7 @@ mixin LottieAsset {
   static const vpn = 'assets/lotties/vpn.json';
   static const mobile = 'assets/lotties/mobile.json';
   static const task = 'assets/lotties/task.json';
+  static const ok = 'assets/lotties/ok.json';
 }
 
 mixin ImageAsset {

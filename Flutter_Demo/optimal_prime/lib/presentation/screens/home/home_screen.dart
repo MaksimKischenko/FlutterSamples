@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:optimal_prime/presentation/screens/home/widgets/battery_info_card_sliver.dart';
 import 'package:optimal_prime/presentation/screens/home/widgets/battery_task_card_sliver.dart';
-import 'package:optimal_prime/presentation/screens/home/widgets/connectivity_info_sliver.dart';
+import 'package:optimal_prime/presentation/screens/home/widgets/connectivity_info.dart';
 import 'package:optimal_prime/utils/build_context_extensions.dart';
 import 'package:optimal_prime/utils/sizes.dart';
+import 'package:optimal_prime/utils/theme.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -30,19 +31,20 @@ class _HomeScreenState extends State<HomeScreen> {
               controller: _scrollController,
               slivers: [
                 SliverToBoxAdapter(
-                  child: Padding(
-                    padding: const EdgeInsets.all(KSize.margin4x),
-                    child: Hero(
-                      tag: 'title',
-                      child: Text(
-                        'Connectivity info',
-                        style: context.textTheme.headlineMedium
-                            ?.copyWith(color: context.colors.secondary),
-                      ),
+                  child: ExpansionTile(
+                    initiallyExpanded: true,
+                    title: Text(
+                      'Connectivity info',
+                      style: context.textTheme.headlineMedium
+                          ?.copyWith(color: context.colors.secondary),
                     ),
+                    iconColor: context.colors.secondary,
+                    collapsedIconColor: AppColors.chevronColor,
+                    children: const [
+                      ConnectivityInfo(),
+                    ],
                   ),
                 ),
-                const ConnectivityInfoSliver(),
                 const SliverPadding(
                   padding: EdgeInsets.symmetric(
                     vertical: KSize.margin2x,
@@ -51,13 +53,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.all(KSize.margin4x),
-                    child: Hero(
-                      tag: 'title',
-                      child: Text(
-                        'Battery info',
-                        style: context.textTheme.headlineMedium
-                            ?.copyWith(color: context.colors.primary),
-                      ),
+                    child: Text(
+                      'Battery info',
+                      style:
+                          context.textTheme.headlineMedium?.copyWith(color: context.colors.primary),
                     ),
                   ),
                 ),
@@ -68,13 +67,10 @@ class _HomeScreenState extends State<HomeScreen> {
                 SliverToBoxAdapter(
                   child: Padding(
                     padding: const EdgeInsets.all(KSize.margin4x),
-                    child: Hero(
-                      tag: 'title',
-                      child: Text(
-                        'Task manager',
-                        style: context.textTheme.headlineMedium
-                            ?.copyWith(color: context.colors.tertiary),
-                      ),
+                    child: Text(
+                      'Task manager',
+                      style: context.textTheme.headlineMedium
+                          ?.copyWith(color: context.colors.tertiary),
                     ),
                   ),
                 ),

@@ -8,7 +8,7 @@ class DialogContent extends StatelessWidget {
   const DialogContent({
     Key? key,
     required this.title,
-    required this.messages,
+    required this.message,
     required this.animationName,
     required this.isSecondButton,
     required this.onPressBtns,
@@ -18,10 +18,7 @@ class DialogContent extends StatelessWidget {
   final String title;
   final bool isSecondButton;
   final String animationName;
-  final ({
-    String investigateIssue,
-    String callCustomer,
-  }) messages;
+  final String message;
   final ({String ok, String call}) textBtns;
   final ({
     VoidCallback onOkPressed,
