@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:optimal_prime/app.dart';
 import 'package:optimal_prime/app_wrapper.dart';
 import 'package:optimal_prime/data/local/isar_helper.dart';
-import 'package:optimal_prime/domain/app_repository.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/utils/functions.dart';
 import 'package:optimal_prime/utils/logger/log.dart';
@@ -17,7 +16,6 @@ Future<void> bootstrap() async {
     LocaleSettings.useDeviceLocale(),
     AppInjector.run(),
     getdep<IsarHelper>().init(),
-    getdep<AppRepository>().init(),
   ]);
 
   runApp(const AppWrapper(child: App()));

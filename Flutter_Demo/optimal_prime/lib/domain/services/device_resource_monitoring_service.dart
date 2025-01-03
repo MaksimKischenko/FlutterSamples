@@ -8,27 +8,17 @@ import 'package:rxdart/rxdart.dart';
 class DeviceResourceMonitoringService with TargetPlatformService {
   DeviceResourceMonitoringService({
     required Connectivity connectivity,
-    // required ScreenBrightness screenBrightness,
-  }) : _connectivity = connectivity
-  // _screenBrightness = screenBrightness {
-  {
-    _initialise();
-  }
+  }) : _connectivity = connectivity;
 
   final Connectivity _connectivity;
-  // final ScreenBrightness _screenBrightness;
-  late final Stream<List<ConnectivityResult>> _connectivityResult;
   late final Stream<DeviceResourceMonitoringInfo> resourceMonitoringStream;
 
-  Future<void> _initialise() async {
-    _connectivityResult = _connectivity.onConnectivityChanged;
+  Future<void> initialise() async {
     resourceMonitoringStream = Rx.combineLatest(
       [
-        _connectivityResult,
+        _connectivity.onConnectivityChanged,
       ],
       (connectivity) => DeviceResourceMonitoringInfo(
-        brightness: 11,
-        //brightness: screenBrightness,
         isMobileNetwork: connectivity.first.contains(ConnectivityResult.mobile),
         isWifiNetwork: connectivity.first.contains(ConnectivityResult.wifi),
         isBluetoothConnection: connectivity.first.contains(ConnectivityResult.bluetooth),
@@ -36,23 +26,10 @@ class DeviceResourceMonitoringService with TargetPlatformService {
             ? connectivity.first.contains(ConnectivityResult.other)
             : connectivity.first.contains(ConnectivityResult.vpn),
       ),
-    );
+    ).asBroadcastStream();
   }
 
-  //   Future<void> _initialise() async {
-  //   _connectivityResult = _connectivity.onConnectivityChanged;
-  //   resourceMonitoringStream = Rx.combineLatest2(
-  //     _connectivityResult,
-  //     _screenBrightness.onApplicationScreenBrightnessChanged,
-  //     (connectivity, screenBrightness) => DeviceResourceMonitoringInfo(
-  //       brightness: screenBrightness,
-  //       isMobileNetwork: connectivity.contains(ConnectivityResult.mobile),
-  //       isWifiNetwork: connectivity.contains(ConnectivityResult.wifi),
-  //       isBluetoothConnection: connectivity.contains(ConnectivityResult.bluetooth),
-  //       isVpnConnection: isIOSplatform
-  //           ? connectivity.contains(ConnectivityResult.other)
-  //           : connectivity.contains(ConnectivityResult.vpn),
-  //     ),
-  //   );
-  // }
+  void dispose() {
+    // resourceMonitoringStream.doOnCancel(() {});
+  }
 }

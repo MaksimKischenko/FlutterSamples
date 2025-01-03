@@ -18,14 +18,13 @@ class IntroScren extends StatefulWidget {
 }
 
 class _IntroScrenState extends State<IntroScren> {
-  static const _intoCount = 3;
+  static const _introCount = 4;
   late PageController _pageViewController;
 
   @override
   void initState() {
     super.initState();
     _pageViewController = PageController();
-    _pageViewController.addListener(_pageViewControllerHandler);
   }
 
   @override
@@ -37,7 +36,6 @@ class _IntroScrenState extends State<IntroScren> {
   @override
   Widget build(BuildContext context) {
     final introBody = context.t.mobileScreens.intro;
-
     return Scaffold(
       body: SafeArea(
         child: Stack(
@@ -47,19 +45,29 @@ class _IntroScrenState extends State<IntroScren> {
               controller: _pageViewController,
               children: [
                 PageViewItem(
-                  itemImage: LottieAsset.batteryIntro,
+                  itemImage: LottieAsset.introBattery,
                   itemTitle: introBody.title1,
                   itemDesctiption: introBody.description1,
                 ),
                 PageViewItem(
-                  itemImage: LottieAsset.chart,
+                  itemImage: LottieAsset.introChart,
                   itemTitle: introBody.title2,
                   itemDesctiption: introBody.description2,
                 ),
                 PageViewItem(
-                  itemImage: LottieAsset.balance,
+                  itemImage: LottieAsset.introBalance,
                   itemTitle: introBody.title3,
                   itemDesctiption: introBody.description3,
+                ),
+                PageViewItem(
+                  itemImage: LottieAsset.introTask,
+                  itemTitle: introBody.title4,
+                  itemDesctiption: introBody.description4,
+                  hasButton: true,
+                  buttonText: introBody.startButton,
+                  onPressed: () {
+                    context.go(HomeScreen.route);
+                  },
                 ),
               ],
             ),
@@ -67,7 +75,7 @@ class _IntroScrenState extends State<IntroScren> {
               padding: EdgeInsets.only(bottom: context.safeBottomPadding),
               child: SmoothPageIndicator(
                 controller: _pageViewController,
-                count: _intoCount,
+                count: _introCount,
                 effect: WormEffect(
                   dotColor: context.colors.onTertiaryContainer,
                   activeDotColor: context.colors.secondary,
@@ -78,13 +86,5 @@ class _IntroScrenState extends State<IntroScren> {
         ),
       ),
     );
-  }
-
-  Future<void> _pageViewControllerHandler() async {
-    final isLastPage = _pageViewController.page == _intoCount - 1;
-    if (isLastPage) {
-      await Future.delayed(const Duration(seconds: 3));
-      context.go(HomeScreen.route);
-    }
   }
 }

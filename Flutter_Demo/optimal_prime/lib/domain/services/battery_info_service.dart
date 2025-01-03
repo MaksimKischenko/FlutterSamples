@@ -27,12 +27,13 @@ class BatteryInfoService {
       _batteryLevelController.stream,
       _batterySafeModeController.stream,
       (batteryState, batteryLevel, batterySafeMode) => BatteryInfo(
-          batteryState: batteryState,
-          batteryLevel: batteryLevel ?? 0,
-          isInBatterySaveMode: batterySafeMode,
-          isBatteryWithLowLevel:
-              ((batteryLevel ?? 0) <= 20) && batteryState == MockedBatteryState.discharging),
-    );
+        batteryState: batteryState,
+        batteryLevel: batteryLevel ?? 0,
+        isInBatterySaveMode: batterySafeMode,
+        isBatteryWithLowLevel:
+            ((batteryLevel ?? 0) <= 20) || batteryState == MockedBatteryState.charging,
+      ),
+    ).asBroadcastStream();
   }
 
   void dispose() {

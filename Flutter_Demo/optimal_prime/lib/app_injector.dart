@@ -3,8 +3,8 @@ import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:optimal_prime/data/local/isar_helper.dart';
 import 'package:optimal_prime/data/repositories/battery_task_repository.dart';
-import 'package:optimal_prime/domain/app_repository.dart';
 import 'package:optimal_prime/domain/services/battery_info_service.dart';
+import 'package:optimal_prime/domain/services/battery_task_service.dart';
 import 'package:optimal_prime/domain/services/device_resource_monitoring_service.dart';
 import 'package:optimal_prime/utils/functions.dart';
 import 'package:optimal_prime/utils/lifecycle_watcher.dart';
@@ -15,25 +15,31 @@ import 'simple_bloc_observer.dart';
 mixin AppInjector {
   static Future<void> run() async {
     GetIt.instance
-      // ..registerLazySingleton<ScreenBrightness>(ScreenBrightness.new)
       ..registerLazySingleton<IsarHelper>(IsarHelper.new)
       ..registerLazySingleton<SimpleBlocObserver>(SimpleBlocObserver.new)
       ..registerLazySingleton<CacheService>(CacheService.new)
       ..registerLazySingleton<LifecycleWatcher>(LifecycleWatcher.new)
-      ..registerLazySingleton<AppRepository>(
+      ..registerLazySingleton<BatteryTaskRepository>(
         () => BatteryTaskRepository(
           isarHelper: getdep<IsarHelper>(),
         ),
       )
       ..registerLazySingleton<DeviceResourceMonitoringService>(
         () => DeviceResourceMonitoringService(
-          // screenBrightness: getdep<ScreenBrightness>(),
           connectivity: Connectivity(),
         ),
       )
       ..registerLazySingleton<BatteryInfoService>(
         () => BatteryInfoService(
           battery: Battery(),
+        ),
+      )
+      ..registerLazySingleton<BatteryTaskService>(
+        () => BatteryTaskService(
+          batteryTaskRepository: getdep<BatteryTaskRepository>(),
+          batteryInfoService: getdep<BatteryInfoService>(),
+          deviceResourceMonitoringService: getdep<DeviceResourceMonitoringService>(),
+          cacheService: getdep<CacheService>(),
         ),
       );
 

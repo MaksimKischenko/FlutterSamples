@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:optimal_prime/domain/services/battery_task_service.dart';
 import 'package:optimal_prime/domain/services/device_resource_monitoring_service.dart';
 import 'package:optimal_prime/domain/services/local_cache_service.dart';
 import 'package:optimal_prime/generated/translations.g.dart';
 import 'package:optimal_prime/presentation/bloc/battery_info/battery_info_bloc.dart';
+import 'package:optimal_prime/presentation/bloc/battery_task/battery_task_bloc.dart';
 import 'package:optimal_prime/presentation/bloc/resource_monitoring/resource_monitoring_bloc.dart';
 import 'package:optimal_prime/presentation/bloc/theme/theme_cubit.dart';
 import 'package:optimal_prime/simple_bloc_observer.dart';
@@ -60,6 +62,11 @@ class _AppWrapperState extends State<AppWrapper> {
               create: (context) => ThemeCubit(
                 cacheService: getdep<CacheService>(),
               ),
+            ),
+            BlocProvider<BatteryTaskBloc>(
+              create: (context) => BatteryTaskBloc(
+                batteryTaskService: getdep<BatteryTaskService>(),
+              )..add(BatteryTaskListen()),
             ),
           ],
           child: BlocListener<BatteryInfoBloc, BatteryInfoState>(

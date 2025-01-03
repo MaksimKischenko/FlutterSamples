@@ -26,9 +26,16 @@ class ResourceMonitoringBloc extends Bloc<ResourceMonitoringEvent, ResourceMonit
     ResourceMonitoringListen event,
     Emitter<ResourceMonitoringState> emit,
   ) async {
+    await _resourceMonitoringService.initialise();
     await emit.forEach<DeviceResourceMonitoringInfo>(
       _resourceMonitoringService.resourceMonitoringStream,
-      onData: (data) => ResourceMonitoringUpdated(connectivityInfo: data),
+      onData: (data) => ResourceMonitoringUpdated(deviceResourceMonitoringInfo: data),
     );
+  }
+
+  @override
+  Future<void> close() {
+    _resourceMonitoringService.dispose();
+    return super.close();
   }
 }

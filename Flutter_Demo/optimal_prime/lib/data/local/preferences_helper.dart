@@ -39,6 +39,7 @@ mixin PreferencesHelper {
 
 mixin PrefsKeys {
   static final theme = TypeStoreKey<bool>('isLight', defaultValue: true);
+  static final isFirstLoad = TypeStoreKey<bool>('isFirstLoad', defaultValue: true);
 }
 
 /// Обьект типизированный ключ используемый в key-value хранилищах для более удобной работы с ними

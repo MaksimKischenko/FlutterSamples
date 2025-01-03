@@ -17,32 +17,17 @@ const BatteryTaskSchema = CollectionSchema(
   name: r'BatteryTask',
   id: 5103073335756137103,
   properties: {
-    r'advice': PropertySchema(
-      id: 0,
-      name: r'advice',
-      type: IsarType.string,
-    ),
-    r'description': PropertySchema(
-      id: 1,
-      name: r'description',
-      type: IsarType.string,
-    ),
     r'state': PropertySchema(
-      id: 2,
+      id: 0,
       name: r'state',
       type: IsarType.object,
-      target: r'BatteryTaskState',
+      target: r'TaskState',
     ),
     r'type': PropertySchema(
-      id: 3,
+      id: 1,
       name: r'type',
       type: IsarType.byte,
       enumMap: _BatteryTasktypeEnumValueMap,
-    ),
-    r'urlLink': PropertySchema(
-      id: 4,
-      name: r'urlLink',
-      type: IsarType.string,
     )
   },
   estimateSize: _batteryTaskEstimateSize,
@@ -52,7 +37,7 @@ const BatteryTaskSchema = CollectionSchema(
   idName: r'id',
   indexes: {},
   links: {},
-  embeddedSchemas: {r'BatteryTaskState': BatteryTaskStateSchema},
+  embeddedSchemas: {r'TaskState': TaskStateSchema},
   getId: _batteryTaskGetId,
   getLinks: _batteryTaskGetLinks,
   attach: _batteryTaskAttach,
@@ -66,29 +51,11 @@ int _batteryTaskEstimateSize(
 ) {
   var bytesCount = offsets.last;
   {
-    final value = object.advice;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
-  {
-    final value = object.description;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
-    }
-  }
-  {
     final value = object.state;
     if (value != null) {
       bytesCount += 3 +
-          BatteryTaskStateSchema.estimateSize(
-              value, allOffsets[BatteryTaskState]!, allOffsets);
-    }
-  }
-  {
-    final value = object.urlLink;
-    if (value != null) {
-      bytesCount += 3 + value.length * 3;
+          TaskStateSchema.estimateSize(
+              value, allOffsets[TaskState]!, allOffsets);
     }
   }
   return bytesCount;
@@ -100,16 +67,13 @@ void _batteryTaskSerialize(
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  writer.writeString(offsets[0], object.advice);
-  writer.writeString(offsets[1], object.description);
-  writer.writeObject<BatteryTaskState>(
-    offsets[2],
+  writer.writeObject<TaskState>(
+    offsets[0],
     allOffsets,
-    BatteryTaskStateSchema.serialize,
+    TaskStateSchema.serialize,
     object.state,
   );
-  writer.writeByte(offsets[3], object.type.index);
-  writer.writeString(offsets[4], object.urlLink);
+  writer.writeByte(offsets[1], object.type.index);
 }
 
 BatteryTask _batteryTaskDeserialize(
@@ -119,18 +83,15 @@ BatteryTask _batteryTaskDeserialize(
   Map<Type, List<int>> allOffsets,
 ) {
   final object = BatteryTask();
-  object.advice = reader.readStringOrNull(offsets[0]);
-  object.description = reader.readStringOrNull(offsets[1]);
   object.id = id;
-  object.state = reader.readObjectOrNull<BatteryTaskState>(
-    offsets[2],
-    BatteryTaskStateSchema.deserialize,
+  object.state = reader.readObjectOrNull<TaskState>(
+    offsets[0],
+    TaskStateSchema.deserialize,
     allOffsets,
   );
   object.type =
-      _BatteryTasktypeValueEnumMap[reader.readByteOrNull(offsets[3])] ??
+      _BatteryTasktypeValueEnumMap[reader.readByteOrNull(offsets[1])] ??
           BatteryTaskType.saveMode;
-  object.urlLink = reader.readStringOrNull(offsets[4]);
   return object;
 }
 
@@ -142,20 +103,14 @@ P _batteryTaskDeserializeProp<P>(
 ) {
   switch (propertyId) {
     case 0:
-      return (reader.readStringOrNull(offset)) as P;
-    case 1:
-      return (reader.readStringOrNull(offset)) as P;
-    case 2:
-      return (reader.readObjectOrNull<BatteryTaskState>(
+      return (reader.readObjectOrNull<TaskState>(
         offset,
-        BatteryTaskStateSchema.deserialize,
+        TaskStateSchema.deserialize,
         allOffsets,
       )) as P;
-    case 3:
+    case 1:
       return (_BatteryTasktypeValueEnumMap[reader.readByteOrNull(offset)] ??
           BatteryTaskType.saveMode) as P;
-    case 4:
-      return (reader.readStringOrNull(offset)) as P;
     default:
       throw IsarError('Unknown property with id $propertyId');
   }
@@ -275,311 +230,6 @@ extension BatteryTaskQueryWhere
 
 extension BatteryTaskQueryFilter
     on QueryBuilder<BatteryTask, BatteryTask, QFilterCondition> {
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'advice',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      adviceIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'advice',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      adviceGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'advice',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      adviceStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'advice',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> adviceMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'advice',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      adviceIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'advice',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      adviceIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'advice',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'description',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'description',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'description',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionContains(String value, {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'description',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionMatches(String pattern, {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'description',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'description',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      descriptionIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'description',
-        value: '',
-      ));
-    });
-  }
-
   QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> idEqualTo(
       Id value) {
     return QueryBuilder.apply(this, (query) {
@@ -702,164 +352,12 @@ extension BatteryTaskQueryFilter
       ));
     });
   }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkIsNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNull(
-        property: r'urlLink',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkIsNotNull() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(const FilterCondition.isNotNull(
-        property: r'urlLink',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkEqualTo(
-    String? value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkGreaterThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        include: include,
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkLessThan(
-    String? value, {
-    bool include = false,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.lessThan(
-        include: include,
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkBetween(
-    String? lower,
-    String? upper, {
-    bool includeLower = true,
-    bool includeUpper = true,
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.between(
-        property: r'urlLink',
-        lower: lower,
-        includeLower: includeLower,
-        upper: upper,
-        includeUpper: includeUpper,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkStartsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.startsWith(
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkEndsWith(
-    String value, {
-    bool caseSensitive = true,
-  }) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.endsWith(
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkContains(
-      String value,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.contains(
-        property: r'urlLink',
-        value: value,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> urlLinkMatches(
-      String pattern,
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.matches(
-        property: r'urlLink',
-        wildcard: pattern,
-        caseSensitive: caseSensitive,
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkIsEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.equalTo(
-        property: r'urlLink',
-        value: '',
-      ));
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition>
-      urlLinkIsNotEmpty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addFilterCondition(FilterCondition.greaterThan(
-        property: r'urlLink',
-        value: '',
-      ));
-    });
-  }
 }
 
 extension BatteryTaskQueryObject
     on QueryBuilder<BatteryTask, BatteryTask, QFilterCondition> {
   QueryBuilder<BatteryTask, BatteryTask, QAfterFilterCondition> state(
-      FilterQuery<BatteryTaskState> q) {
+      FilterQuery<TaskState> q) {
     return QueryBuilder.apply(this, (query) {
       return query.object(q, r'state');
     });
@@ -871,30 +369,6 @@ extension BatteryTaskQueryLinks
 
 extension BatteryTaskQuerySortBy
     on QueryBuilder<BatteryTask, BatteryTask, QSortBy> {
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByAdvice() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'advice', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByAdviceDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'advice', Sort.desc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByDescription() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByDescriptionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.desc);
-    });
-  }
-
   QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByType() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'type', Sort.asc);
@@ -906,46 +380,10 @@ extension BatteryTaskQuerySortBy
       return query.addSortBy(r'type', Sort.desc);
     });
   }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByUrlLink() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'urlLink', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> sortByUrlLinkDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'urlLink', Sort.desc);
-    });
-  }
 }
 
 extension BatteryTaskQuerySortThenBy
     on QueryBuilder<BatteryTask, BatteryTask, QSortThenBy> {
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByAdvice() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'advice', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByAdviceDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'advice', Sort.desc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByDescription() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByDescriptionDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'description', Sort.desc);
-    });
-  }
-
   QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenById() {
     return QueryBuilder.apply(this, (query) {
       return query.addSortBy(r'id', Sort.asc);
@@ -969,46 +407,13 @@ extension BatteryTaskQuerySortThenBy
       return query.addSortBy(r'type', Sort.desc);
     });
   }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByUrlLink() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'urlLink', Sort.asc);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QAfterSortBy> thenByUrlLinkDesc() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addSortBy(r'urlLink', Sort.desc);
-    });
-  }
 }
 
 extension BatteryTaskQueryWhereDistinct
     on QueryBuilder<BatteryTask, BatteryTask, QDistinct> {
-  QueryBuilder<BatteryTask, BatteryTask, QDistinct> distinctByAdvice(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'advice', caseSensitive: caseSensitive);
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QDistinct> distinctByDescription(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'description', caseSensitive: caseSensitive);
-    });
-  }
-
   QueryBuilder<BatteryTask, BatteryTask, QDistinct> distinctByType() {
     return QueryBuilder.apply(this, (query) {
       return query.addDistinctBy(r'type');
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTask, QDistinct> distinctByUrlLink(
-      {bool caseSensitive = true}) {
-    return QueryBuilder.apply(this, (query) {
-      return query.addDistinctBy(r'urlLink', caseSensitive: caseSensitive);
     });
   }
 }
@@ -1021,20 +426,7 @@ extension BatteryTaskQueryProperty
     });
   }
 
-  QueryBuilder<BatteryTask, String?, QQueryOperations> adviceProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'advice');
-    });
-  }
-
-  QueryBuilder<BatteryTask, String?, QQueryOperations> descriptionProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'description');
-    });
-  }
-
-  QueryBuilder<BatteryTask, BatteryTaskState?, QQueryOperations>
-      stateProperty() {
+  QueryBuilder<BatteryTask, TaskState?, QQueryOperations> stateProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'state');
     });
@@ -1043,12 +435,6 @@ extension BatteryTaskQueryProperty
   QueryBuilder<BatteryTask, BatteryTaskType, QQueryOperations> typeProperty() {
     return QueryBuilder.apply(this, (query) {
       return query.addPropertyName(r'type');
-    });
-  }
-
-  QueryBuilder<BatteryTask, String?, QQueryOperations> urlLinkProperty() {
-    return QueryBuilder.apply(this, (query) {
-      return query.addPropertyName(r'urlLink');
     });
   }
 }
@@ -1060,9 +446,9 @@ extension BatteryTaskQueryProperty
 // coverage:ignore-file
 // ignore_for_file: duplicate_ignore, non_constant_identifier_names, constant_identifier_names, invalid_use_of_protected_member, unnecessary_cast, prefer_const_constructors, lines_longer_than_80_chars, require_trailing_commas, inference_failure_on_function_invocation, unnecessary_parenthesis, unnecessary_raw_strings, unnecessary_null_checks, join_return_with_assignment, prefer_final_locals, avoid_js_rounded_ints, avoid_positional_boolean_parameters, always_specify_types
 
-const BatteryTaskStateSchema = Schema(
-  name: r'BatteryTaskState',
-  id: -5926871044345967669,
+const TaskStateSchema = Schema(
+  name: r'TaskState',
+  id: 5841462132254291981,
   properties: {
     r'finishDate': PropertySchema(
       id: 0,
@@ -1085,14 +471,14 @@ const BatteryTaskStateSchema = Schema(
       type: IsarType.dateTime,
     )
   },
-  estimateSize: _batteryTaskStateEstimateSize,
-  serialize: _batteryTaskStateSerialize,
-  deserialize: _batteryTaskStateDeserialize,
-  deserializeProp: _batteryTaskStateDeserializeProp,
+  estimateSize: _taskStateEstimateSize,
+  serialize: _taskStateSerialize,
+  deserialize: _taskStateDeserialize,
+  deserializeProp: _taskStateDeserializeProp,
 );
 
-int _batteryTaskStateEstimateSize(
-  BatteryTaskState object,
+int _taskStateEstimateSize(
+  TaskState object,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
@@ -1100,8 +486,8 @@ int _batteryTaskStateEstimateSize(
   return bytesCount;
 }
 
-void _batteryTaskStateSerialize(
-  BatteryTaskState object,
+void _taskStateSerialize(
+  TaskState object,
   IsarWriter writer,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
@@ -1112,13 +498,13 @@ void _batteryTaskStateSerialize(
   writer.writeDateTime(offsets[3], object.startDate);
 }
 
-BatteryTaskState _batteryTaskStateDeserialize(
+TaskState _taskStateDeserialize(
   Id id,
   IsarReader reader,
   List<int> offsets,
   Map<Type, List<int>> allOffsets,
 ) {
-  final object = BatteryTaskState();
+  final object = TaskState();
   object.finishDate = reader.readDateTimeOrNull(offsets[0]);
   object.isEnabled = reader.readBoolOrNull(offsets[1]);
   object.isFinished = reader.readBoolOrNull(offsets[2]);
@@ -1126,7 +512,7 @@ BatteryTaskState _batteryTaskStateDeserialize(
   return object;
 }
 
-P _batteryTaskStateDeserializeProp<P>(
+P _taskStateDeserializeProp<P>(
   IsarReader reader,
   int propertyId,
   int offset,
@@ -1146,10 +532,9 @@ P _batteryTaskStateDeserializeProp<P>(
   }
 }
 
-extension BatteryTaskStateQueryFilter
-    on QueryBuilder<BatteryTaskState, BatteryTaskState, QFilterCondition> {
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      finishDateIsNull() {
+extension TaskStateQueryFilter
+    on QueryBuilder<TaskState, TaskState, QFilterCondition> {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> finishDateIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'finishDate',
@@ -1157,7 +542,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       finishDateIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
@@ -1166,8 +551,8 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      finishDateEqualTo(DateTime? value) {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> finishDateEqualTo(
+      DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'finishDate',
@@ -1176,7 +561,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       finishDateGreaterThan(
     DateTime? value, {
     bool include = false,
@@ -1190,8 +575,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      finishDateLessThan(
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> finishDateLessThan(
     DateTime? value, {
     bool include = false,
   }) {
@@ -1204,8 +588,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      finishDateBetween(
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> finishDateBetween(
     DateTime? lower,
     DateTime? upper, {
     bool includeLower = true,
@@ -1222,8 +605,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      isEnabledIsNull() {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> isEnabledIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'isEnabled',
@@ -1231,7 +613,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       isEnabledIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
@@ -1240,8 +622,8 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      isEnabledEqualTo(bool? value) {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> isEnabledEqualTo(
+      bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isEnabled',
@@ -1250,8 +632,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      isFinishedIsNull() {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> isFinishedIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'isFinished',
@@ -1259,7 +640,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       isFinishedIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
@@ -1268,8 +649,8 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      isFinishedEqualTo(bool? value) {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> isFinishedEqualTo(
+      bool? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'isFinished',
@@ -1278,8 +659,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      startDateIsNull() {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> startDateIsNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNull(
         property: r'startDate',
@@ -1287,7 +667,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       startDateIsNotNull() {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(const FilterCondition.isNotNull(
@@ -1296,8 +676,8 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      startDateEqualTo(DateTime? value) {
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> startDateEqualTo(
+      DateTime? value) {
     return QueryBuilder.apply(this, (query) {
       return query.addFilterCondition(FilterCondition.equalTo(
         property: r'startDate',
@@ -1306,7 +686,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition>
       startDateGreaterThan(
     DateTime? value, {
     bool include = false,
@@ -1320,8 +700,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      startDateLessThan(
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> startDateLessThan(
     DateTime? value, {
     bool include = false,
   }) {
@@ -1334,8 +713,7 @@ extension BatteryTaskStateQueryFilter
     });
   }
 
-  QueryBuilder<BatteryTaskState, BatteryTaskState, QAfterFilterCondition>
-      startDateBetween(
+  QueryBuilder<TaskState, TaskState, QAfterFilterCondition> startDateBetween(
     DateTime? lower,
     DateTime? upper, {
     bool includeLower = true,
@@ -1353,5 +731,5 @@ extension BatteryTaskStateQueryFilter
   }
 }
 
-extension BatteryTaskStateQueryObject
-    on QueryBuilder<BatteryTaskState, BatteryTaskState, QFilterCondition> {}
+extension TaskStateQueryObject
+    on QueryBuilder<TaskState, TaskState, QFilterCondition> {}

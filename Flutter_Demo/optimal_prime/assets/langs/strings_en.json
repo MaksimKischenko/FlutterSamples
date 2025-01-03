@@ -9,7 +9,10 @@
       "title2": "Track the Dynamics",
       "description2": "The app will display continuous battery health trends over specified time intervals.",
       "title3": "Find the Balance",
-      "description3": "We will find the optimal battery usage balance to ensure prolonged battery life and health."
+      "description3": "We will find the optimal battery usage balance to ensure prolonged battery life and health.",
+      "title4": "Complete several tasks in advance",
+      "description4": "So that we can better understand at what rate you are using up your battery - complete several tasks in advance.",
+      "startButton": "Get Started"
     },
     "home": {
       "batteryInfo": {
@@ -24,10 +27,60 @@
           "unknown": "Determining..."
         },
         "timeToChargeTitle": "Time to charge",
-         "timeToChargeState": {
+        "timeToChargeState": {
           "yes": "Necessary",
           "no": "No"
-         }
+        }
+      }
+    },
+    "tasks": {
+      "saveMode": {
+        "name": "Save mode",
+        "title": "Enable Power Saving Mode",
+        "description": "Power saving mode limits background processes and reduces device performance to reduce power consumption.",
+        "advice": "Activate this mode when the battery level is low or when you need to extend the battery life of the device."
+      },
+      "fullCharge": {
+        "name": "Full charge",
+        "title": "Charge to 100%",
+        "description": "Charge your device to 100% to calibrate the battery.",
+        "advice": "Fully charging to 100% allows the device to calibrate the battery indicator. Avoid frequent full charging; maintain the charge level between 20% and 80%."
+      },
+      "charging": {
+        "name": "Charging",
+        "title": "Do Not Use While Charging",
+        "description": "Leave the device alone while charging.",
+        "advice": "Avoid using the device while charging to prevent overheating and reduce charging efficiency."
+      },
+      "switchOffConnections": {
+        "name": "Switch off connections",
+        "title": "Disable Unused Connections",
+        "description": "Turn off Wi-Fi, Bluetooth, and mobile connections when not in use.",
+        "advice": "These connections consume energy even when not in use. Disable them to save battery."
+      },
+      "lowBatteryLevel": {
+        "name": "Low battery",
+        "title": "Charge at Low Levels",
+        "description": "Open the app when the charge level is 20-25%.",
+        "advice": "Charge your device as soon as the charge drops below 20% to avoid deep discharge."
+      },
+      "highBatteryLevel": {
+        "name": "High battery",
+        "title": "Avoid Overcharging",
+        "description": "Open the app when the charge level is 80-85%.",
+        "advice": "Keeping the battery level between 20% and 80% can significantly extend its life and reduce degradation."
+      },
+      "darkMode": {
+        "name": "Dark mode",
+        "title": "Enable Dark Mode",
+        "description": "Activate dark mode on your device.",
+        "advice": "Dark mode may not always save much battery but can reduce strain on your eyes in low-light environments."
+      },
+      "optimizeScreenWork": {
+        "name": "Optimize screen work",
+        "title": "Optimize Screen Brightness",
+        "description": "Adjust screen brightness to an optimal level (20-30%).",
+        "advice": "Reducing screen brightness can significantly reduce battery consumption, as the screen is one of the most energy-intensive components."
       }
     }
   }

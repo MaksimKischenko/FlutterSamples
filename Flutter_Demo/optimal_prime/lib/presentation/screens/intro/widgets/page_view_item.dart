@@ -7,12 +7,18 @@ class PageViewItem extends StatelessWidget {
   final String itemImage;
   final String itemTitle;
   final String itemDesctiption;
+  final bool hasButton;
+  final VoidCallback? onPressed;
+  final String? buttonText;
 
   const PageViewItem({
     Key? key,
     required this.itemImage,
     required this.itemTitle,
     required this.itemDesctiption,
+    this.hasButton = false,
+    this.onPressed,
+    this.buttonText,
   }) : super(key: key);
 
   @override
@@ -42,7 +48,20 @@ class PageViewItem extends StatelessWidget {
               style: context.textTheme.bodyLarge?.copyWith(
                 color: context.colors.onSurfaceVariant,
               ),
-            )
+            ),
+            if (hasButton) ...[
+              TextButton(
+                onPressed: onPressed,
+                style: ButtonStyle(
+                  foregroundColor: WidgetStatePropertyAll(context.colors.secondary),
+                  overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+                  splashFactory: NoSplash.splashFactory,
+                ),
+                child: Text(
+                  buttonText ?? '',
+                ),
+              ),
+            ]
           ],
         ),
       );

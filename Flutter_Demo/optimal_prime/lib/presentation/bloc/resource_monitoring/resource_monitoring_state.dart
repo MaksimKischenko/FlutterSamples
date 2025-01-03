@@ -10,12 +10,12 @@ sealed class ResourceMonitoringState extends Equatable {
 final class ResourceMonitoringLoading extends ResourceMonitoringState {}
 
 final class ResourceMonitoringUpdated extends ResourceMonitoringState {
-  final DeviceResourceMonitoringInfo connectivityInfo;
+  final DeviceResourceMonitoringInfo deviceResourceMonitoringInfo;
 
   const ResourceMonitoringUpdated({
-    required this.connectivityInfo,
+    required this.deviceResourceMonitoringInfo,
   });
 
   @override
-  List<Object> get props => [connectivityInfo];
+  List<Object> get props => [deviceResourceMonitoringInfo];
 }

@@ -21,7 +21,7 @@ class BatteryInfoCardSliver extends StatelessWidget {
         padding: const EdgeInsets.symmetric(horizontal: KSize.margin2x),
         sliver: SliverToBoxAdapter(
           child: Card(
-            // elevation: 0,
+            elevation: 0,
             color: context.colors.onPrimary,
             child: Padding(
               padding: const EdgeInsets.all(KSize.margin2x),
@@ -58,8 +58,9 @@ class BatteryInfoCardSliver extends StatelessWidget {
                                 ),
                                 Gap.verticalMaterialHalf,
                                 CardInfoAnimation(
-                                  isAnimated: isSaveMode,
-                                  animationName: LottieAsset.saveMode,
+                                  isOn: isSaveMode,
+                                  animationOn: LottieAsset.saveMode,
+                                  animationOff: LottieAsset.off,
                                 )
                               ],
                             )
@@ -102,8 +103,9 @@ class BatteryInfoCardSliver extends StatelessWidget {
                                 ),
                                 Gap.verticalMaterialHalf,
                                 CardInfoAnimation(
-                                  isAnimated: isBatteryWithLowLevel,
-                                  animationName: LottieAsset.low,
+                                  isOn: isBatteryWithLowLevel,
+                                  animationOn: LottieAsset.splashBattery,
+                                  animationOff: LottieAsset.off,
                                 )
                               ],
                             )

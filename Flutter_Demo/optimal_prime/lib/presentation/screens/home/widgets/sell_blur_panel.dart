@@ -6,15 +6,11 @@ import 'package:optimal_prime/utils/sizes.dart';
 
 class BlurPanel extends StatelessWidget {
   const BlurPanel({
-    required this.textString,
-    required this.linearGradientColors,
-    required this.onPressed,
+    required this.child,
     super.key,
   });
 
-  final String textString;
-  final List<Color> linearGradientColors;
-  final VoidCallback? onPressed;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {
@@ -28,22 +24,15 @@ class BlurPanel extends StatelessWidget {
             gradient: LinearGradient(
               begin: Alignment.bottomCenter,
               end: Alignment.topCenter,
-              colors: linearGradientColors,
+              colors: [
+                context.colors.onTertiary.withOpacity(0.5),
+                context.colors.tertiary.withOpacity(0.8),
+              ],
             ),
           ),
           child: Padding(
             padding: const EdgeInsets.all(KSize.margin2x),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  textString,
-                  style: context.textTheme.titleMedium?.apply(color: context.colors.onPrimary),
-                  maxLines: 3,
-                ),
-                ElevatedButton(onPressed: onPressed, child: const Text('Run')),
-              ],
-            ),
+            child: child,
           ),
         ),
       ),
